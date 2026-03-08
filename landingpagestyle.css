@@ -1,5 +1,5 @@
 * {
-    margin: 0;
+margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
@@ -10,6 +10,12 @@ body {
     color: #e6ffe6;
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+html,
+body{
+    scroll-behavior: smooth;
+    scroll-padding: 10px;
 }
 
 body::before {
@@ -36,10 +42,12 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px 8%;
+
 }
 
+
 .logo {
-    font-family: 'Press Start 2P', cursive;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, serif;
     font-size: 20px;
     color: #aabbee;
     text-shadow:
@@ -344,10 +352,12 @@ nav ul li a:hover {
     max-width: 400px;
     box-shadow: 0 0 25px rgba(180,200,255,0.5);
     position: relative;
+    justify-content: ;
 }
 
 .login-form {
     margin-top: 25px;
+    align-items: center;
 }
 
 .close {
@@ -401,4 +411,8 @@ footer a {
 
 footer a:hover {
     text-shadow: 0 0 8px #aabbee;
+}
+
+a {
+  text-decoration: none;
 }
