@@ -1,189 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>C++ Beginner Quiz</title>
-<link rel="stylesheet" href="fundamentals.css">
+<link rel="stylesheet" href="quizstyles.css">
 </head>
-
 <body>
 
 <header>
-<nav>
-
-<h2 class="logo">Fundamentals of C++</h2>
-
-<ul>
-<li><a href="landingpage.html">Home</a></li>
-<li><a href="#">Games</a></li>
-<li><a href="#">Contact</a></li>
-</ul>
-
-</nav>
+  <nav>
+    <h2 class="logo">Fundamentals of C++</h2>
+    <ul>
+      <li><a href="landingpage.html">Home</a></li>
+      <li><a href="#">Games</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
 </header>
 
-
 <section class="games-section">
-
-<div class="quiz-container">
-
-<h2>C++ Beginner Quiz</h2>
-
-<form>
-
-<h3>1. Which line starts a C++ program?</h3>
-
-<label><input type="radio" name="q1" value="wrong"> start()</label>
-<label><input type="radio" name="q1" value="correct"> int main()</label>
-<label><input type="radio" name="q1" value="wrong"> begin()</label>
-
-
-<h3>2. Which syntax includes a library?</h3>
-
-<label><input type="radio" name="q2" value="wrong"> import &lt;iostream&gt;</label>
-<label><input type="radio" name="q2" value="correct"> #include &lt;iostream&gt;</label>
-<label><input type="radio" name="q2" value="wrong"> using &lt;iostream&gt;</label>
-
-
-<h3>3. Which syntax uses the standard namespace?</h3>
-
-<label><input type="radio" name="q3" value="correct"> using namespace std;</label>
-<label><input type="radio" name="q3" value="wrong"> use std::namespace;</label>
-<label><input type="radio" name="q3" value="wrong"> namespace = std;</label>
-
-
-<h3>4. Which syntax prints output?</h3>
-
-<label><input type="radio" name="q4" value="correct"> cout &lt;&lt; "Hello";</label>
-<label><input type="radio" name="q4" value="wrong"> cin &gt;&gt; "Hello";</label>
-<label><input type="radio" name="q4" value="wrong"> print("Hello");</label>
-
-
-<h3>5. Which syntax receives input?</h3>
-
-<label><input type="radio" name="q5" value="wrong"> cout &lt;&lt; x;</label>
-<label><input type="radio" name="q5" value="correct"> cin &gt;&gt; x;</label>
-<label><input type="radio" name="q5" value="wrong"> input(x);</label>
-
-
-<h3>6. Which is a correct integer variable declaration?</h3>
-
-<label><input type="radio" name="q6" value="correct"> int age = 10;</label>
-<label><input type="radio" name="q6" value="wrong"> age int = 10;</label>
-<label><input type="radio" name="q6" value="wrong"> integer age = 10;</label>
-
-
-<h3>7. Which is a correct string variable declaration?</h3>
-
-<label><input type="radio" name="q7" value="correct"> string name = "John";</label>
-<label><input type="radio" name="q7" value="wrong"> int name = "John";</label>
-<label><input type="radio" name="q7" value="wrong"> text name = "John";</label>
-
-
-<h3>8. Which is a correct float variable declaration?</h3>
-
-<label><input type="radio" name="q8" value="correct"> float price = 9.99;</label>
-<label><input type="radio" name="q8" value="wrong"> decimal price = 9.99;</label>
-<label><input type="radio" name="q8" value="wrong"> double price = 9.99f;</label>
-
-
-<h3>9. Which syntax is used for a single-line comment?</h3>
-
-<label><input type="radio" name="q9" value="correct"> // This is a comment</label>
-<label><input type="radio" name="q9" value="wrong"> ## This is a comment</label>
-<label><input type="radio" name="q9" value="wrong"> ** This is a comment</label>
-
-
-<h3>10. Which syntax is used for a multi-line comment?</h3>
-
-<label><input type="radio" name="q10" value="correct"> /* This is a comment */</label>
-<label><input type="radio" name="q10" value="wrong"> // This is a comment //</label>
-<label><input type="radio" name="q10" value="wrong"> ** This is a comment **</label>
-
-
-<h3>11. Which syntax defines a void function?</h3>
-
-<label><input type="radio" name="q11" value="correct"> void greet() { }</label>
-<label><input type="radio" name="q11" value="wrong"> function greet() { }</label>
-<label><input type="radio" name="q11" value="wrong"> def greet() { }</label>
-
-
-<h3>12. Which syntax returns a value from a function?</h3>
-
-<label><input type="radio" name="q12" value="correct"> return x;</label>
-<label><input type="radio" name="q12" value="wrong"> send x;</label>
-<label><input type="radio" name="q12" value="wrong"> output x;</label>
-
-
-<h3>13. Which syntax is used for an if statement?</h3>
-
-<label><input type="radio" name="q13" value="correct"> if(x == 1) { }</label>
-<label><input type="radio" name="q13" value="wrong"> if x == 1 { }</label>
-<label><input type="radio" name="q13" value="wrong"> check(x == 1) { }</label>
-
-
-<h3>14. Which syntax is used for an if-else statement?</h3>
-
-<label><input type="radio" name="q14" value="correct"> if(x &gt; 0) { } else { }</label>
-<label><input type="radio" name="q14" value="wrong"> if(x &gt; 0) { } otherwise { }</label>
-<label><input type="radio" name="q14" value="wrong"> if(x &gt; 0) { } default { }</label>
-
-
-<h3>15. Which syntax declares a constant?</h3>
-
-<label><input type="radio" name="q15" value="correct"> const int x = 5;</label>
-<label><input type="radio" name="q15" value="wrong"> constant int x = 5;</label>
-<label><input type="radio" name="q15" value="wrong"> final int x = 5;</label>
-
-
-<h3>16. Which syntax prints a new line?</h3>
-
-<label><input type="radio" name="q16" value="correct"> cout &lt;&lt; endl;</label>
-<label><input type="radio" name="q16" value="wrong"> cout &lt;&lt; newline;</label>
-<label><input type="radio" name="q16" value="wrong"> cout &lt;&lt; "\t";</label>
-
-
-<h3>17. Which is the correct arithmetic addition syntax?</h3>
-
-<label><input type="radio" name="q17" value="correct"> int sum = a + b;</label>
-<label><input type="radio" name="q17" value="wrong"> int sum = a plus b;</label>
-<label><input type="radio" name="q17" value="wrong"> int sum = add(a, b);</label>
-
-
-<h3>18. Which syntax correctly calls a function?</h3>
-
-<label><input type="radio" name="q18" value="correct"> greet();</label>
-<label><input type="radio" name="q18" value="wrong"> call greet();</label>
-<label><input type="radio" name="q18" value="wrong"> run greet();</label>
-
-
-<h3>19. Which syntax declares a boolean variable?</h3>
-
-<label><input type="radio" name="q19" value="correct"> bool isOn = true;</label>
-<label><input type="radio" name="q19" value="wrong"> boolean isOn = true;</label>
-<label><input type="radio" name="q19" value="wrong"> bit isOn = true;</label>
-
-
-<h3>20. Which is the correct structure of a basic C++ program?</h3>
-
-<label><input type="radio" name="q20" value="correct"> #include &lt;iostream&gt; using namespace std; int main() { return 0; }</label>
-<label><input type="radio" name="q20" value="wrong"> import iostream; start() { return 0; }</label>
-<label><input type="radio" name="q20" value="wrong"> include iostream; main() { }</label>
-
-
-<div class="playagain">
-<button class="btn" onclick="location.reload()">Play Again</button>
-</div>
-
-</form>
-
-</div>
-
+  <div class="quiz-container">
+    <h2>C++ Beginner Quiz</h2>
+
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill"></div>
+    </div>
+    <div class="question-counter">Question 1 of 20</div>
+
+    <form id="quizForm">
+
+      <div class="question-block active">
+        <h3>1. Which line starts a C++ program?</h3>
+        <div class="options">
+          <label><input type="radio" name="q1"> Option A</label>
+          <label><input type="radio" name="q1"> Option B</label>
+          <label><input type="radio" name="q1"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Next →</button></div>
+      </div>
+
+      <div class="question-block">
+        <h3>2. Which syntax includes a library?</h3>
+        <div class="options">
+          <label><input type="radio" name="q2"> Option A</label>
+          <label><input type="radio" name="q2"> Option B</label>
+          <label><input type="radio" name="q2"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Next →</button></div>
+      </div>
+
+      <div class="question-block">
+        <h3>3. Which syntax uses the standard namespace?</h3>
+        <div class="options">
+          <label><input type="radio" name="q3"> Option A</label>
+          <label><input type="radio" name="q3"> Option B</label>
+          <label><input type="radio" name="q3"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Next →</button></div>
+      </div>
+
+      <div class="question-block">
+        <h3>4. Which syntax prints output?</h3>
+        <div class="options">
+          <label><input type="radio" name="q4"> Option A</label>
+          <label><input type="radio" name="q4"> Option B</label>
+          <label><input type="radio" name="q4"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Next →</button></div>
+      </div>
+
+      <div class="question-block">
+        <h3>5. Which syntax receives input?</h3>
+        <div class="options">
+          <label><input type="radio" name="q5"> Option A</label>
+          <label><input type="radio" name="q5"> Option B</label>
+          <label><input type="radio" name="q5"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Next →</button></div>
+      </div>
+
+      <div class="question-block">
+        <h3>6. Which is a correct integer variable declaration?</h3>
+        <div class="options">
+          <label><input type="radio" name="q6"> Option A</label>
+          <label><input type="radio" name="q6"> Option B</label>
+          <label><input type="radio" name="q6"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Next →</button></div>
+      </div>
+
+      <div class="question-block">
+        <h3>7. Which is a correct string variable declaration?</h3>
+        <div class="options">
+          <label><input type="radio" name="q7"> Option A</label>
+          <label><input type="radio" name="q7"> Option B</label>
+          <label><input type="radio" name="q7"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Next →</button></div>
+      </div>
+
+      <div class="question-block">
+        <h3>8. Which is a correct float variable declaration?</h3>
+        <div class="options">
+          <label><input type="radio" name="q8"> Option A</label>
+          <label><input type="radio" name="q8"> Option B</label>
+          <label><input type="radio" name="q8"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Next →</button></div>
+      </div>
+
+      <div class="question-block">
+        <h3>9. Which syntax is used for a single-line comment?</h3>
+        <div class="options">
+          <label><input type="radio" name="q9"> Option A</label>
+          <label><input type="radio" name="q9"> Option B</label>
+          <label><input type="radio" name="q9"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Next →</button></div>
+      </div>
+
+      <div class="question-block">
+        <h3>10. Which syntax is used for a multi-line comment?</h3>
+        <div class="options">
+          <label><input type="radio" name="q10"> Option A</label>
+          <label><input type="radio" name="q10"> Option B</label>
+          <label><input type="radio" name="q10"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Next →</button></div>
+      </div>
+
+      <div class="question-block">
+        <h3>11. Which syntax defines a void function?</h3>
+        <div class="options">
+          <label><input type="radio" name="q11"> Option A</label>
+          <label><input type="radio" name="q11"> Option B</label>
+          <label><input type="radio" name="q11"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Next →</button></div>
+      </div>
+
+      <div class="question-block">
+        <h3>12. Which syntax returns a value from a function?</h3>
+        <div class="options">
+          <label><input type="radio" name="q12"> Option A</label>
+          <label><input type="radio" name="q12"> Option B</label>
+          <label><input type="radio" name="q12"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Next →</button></div>
+      </div>
+
+      <div class="question-block">
+        <h3>13. Which syntax is used for an if statement?</h3>
+        <div class="options">
+          <label><input type="radio" name="q13"> Option A</label>
+          <label><input type="radio" name="q13"> Option B</label>
+          <label><input type="radio" name="q13"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Next →</button></div>
+      </div>
+
+      <div class="question-block">
+        <h3>14. Which syntax is used for an if-else statement?</h3>
+        <div class="options">
+          <label><input type="radio" name="q14"> Option A</label>
+          <label><input type="radio" name="q14"> Option B</label>
+          <label><input type="radio" name="q14"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Next →</button></div>
+      </div>
+
+      <div class="question-block">
+        <h3>15. Which syntax declares a constant?</h3>
+        <div class="options">
+          <label><input type="radio" name="q15"> Option A</label>
+          <label><input type="radio" name="q15"> Option B</label>
+          <label><input type="radio" name="q15"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Next →</button></div>
+      </div>
+
+      <div class="question-block">
+        <h3>16. Which syntax prints a new line?</h3>
+        <div class="options">
+          <label><input type="radio" name="q16"> Option A</label>
+          <label><input type="radio" name="q16"> Option B</label>
+          <label><input type="radio" name="q16"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Next →</button></div>
+      </div>
+
+      <div class="question-block">
+        <h3>17. Which is the correct arithmetic addition syntax?</h3>
+        <div class="options">
+          <label><input type="radio" name="q17"> Option A</label>
+          <label><input type="radio" name="q17"> Option B</label>
+          <label><input type="radio" name="q17"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Next →</button></div>
+      </div>
+
+      <div class="question-block">
+        <h3>18. Which syntax correctly calls a function?</h3>
+        <div class="options">
+          <label><input type="radio" name="q18"> Option A</label>
+          <label><input type="radio" name="q18"> Option B</label>
+          <label><input type="radio" name="q18"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Next →</button></div>
+      </div>
+
+      <div class="question-block">
+        <h3>19. Which syntax declares a boolean variable?</h3>
+        <div class="options">
+          <label><input type="radio" name="q19"> Option A</label>
+          <label><input type="radio" name="q19"> Option B</label>
+          <label><input type="radio" name="q19"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Next →</button></div>
+      </div>
+
+      <div class="question-block">
+        <h3>20. Which is the correct structure of a basic C++ program?</h3>
+        <div class="options">
+          <label><input type="radio" name="q20"> Option A</label>
+          <label><input type="radio" name="q20"> Option B</label>
+          <label><input type="radio" name="q20"> Option C</label>
+        </div>
+        <div class="feedback-msg"></div>
+        <div class="nav-row"><button type="button" class="btn" disabled>Finish ✓</button></div>
+      </div>
+
+    </form>
+
+    <div class="result-screen" id="resultScreen">
+      <h3>Quiz Complete!</h3>
+      <div class="score-display" id="scoreDisplay"></div>
+      <div class="score-label">CORRECT ANSWERS</div>
+      <p id="scoreMessage"></p>
+      <div class="playagain">
+        <button class="btn">Play Again</button>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 </body>
 </html>
-
-
