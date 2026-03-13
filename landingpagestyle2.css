@@ -1,15 +1,16 @@
+
 * {
-margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-body {
-    font-family: 'Playfair Display', serif;
-    background: linear-gradient(to bottom, #1a1b2a, #2a2b40, #1b1c30);
-    color: #e6ffe6;
-    line-height: 1.6;
-    overflow-x: hidden;
+body{
+font-family:'Playfair Display',serif;
+background:linear-gradient(to bottom,#1a1b2a,#2a2b40,#1b1c30);
+color:#e6ffe6;
+line-height:1.6;
+overflow-x:hidden;
 }
 
 html,
@@ -18,63 +19,66 @@ body{
     scroll-padding: 10px;
 }
 
-body::before {
-    content: "";
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 25% 25%, rgba(180,200,255,0.06), transparent 40%),
-                radial-gradient(circle at 75% 75%, rgba(150,180,255,0.06), transparent 40%);
-    z-index: -1;
-}
 
-header {
-    background: rgba(20, 18, 35, 0.9);
-    backdrop-filter: blur(6px);
-    border-bottom: 2px solid #aabbee;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 8%;
-
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 25% 25%, rgba(180,200,255,0.06), transparent 40%),
+radial-gradient(circle at 75% 75%, rgba(150,180,255,0.06), transparent 40%);
+z-index:-1;
 }
 
 
-.logo {
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, serif;
-    font-size: 20px;
-    color: #aabbee;
-    text-shadow:
-        0 0 4px #aabbee,
-        0 0 8px rgba(170,190,255,0.4);
-    letter-spacing: 2px;
-    line-height: 1.2;
-    margin: 0;
+
+header{
+background:rgba(20,18,35,0.9);
+backdrop-filter:blur(6px);
+border-bottom:2px solid #aabbee;
+position:sticky;
+top:0;
+z-index:1000;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 30px;
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: #ccddee;
-    font-weight: 800;
-    transition: 0.3s ease;
+.logo{
+font-family:'Press Start 2P',cursive;
+font-size:20px;
+color:#aabbee;
+
+text-shadow:
+0 0 4px #aabbee,
+0 0 8px rgba(170,190,255,0.4);
+
+letter-spacing:2px;
 }
 
-nav ul li a:hover {
-    color: #aabbee;
-    text-shadow: 0 0 8px #aabbee;
+nav ul{
+list-style:none;
+display:flex;
+gap:30px;
 }
+
+nav ul li a{
+text-decoration:none;
+color:#ccddee;
+font-weight:800;
+transition:0.3s ease;
+}
+
+nav ul li a:hover{
+color:#aabbee;
+text-shadow:0 0 8px #aabbee;
+}
+
 
 .contents {
     text-align: center;
@@ -416,3 +420,4 @@ footer a:hover {
 a {
   text-decoration: none;
 }
+
