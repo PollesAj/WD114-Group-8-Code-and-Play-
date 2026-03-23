@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Java Quiz</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    .question { margin-bottom: 15px; }
+  </style>
+</head>
+<body>
+
+<h2>Java Quiz (20 Questions)</h2>
+
+<form>
+
+<div class="question">
+1. What is Java?<br>
+<input type="radio" name="q1"> A programming language<br>
+<input type="radio" name="q1"> A database<br>
+<input type="radio" name="q1"> An operating system<br>
+</div>
+
+<div class="question">
+2. Who developed Java?<br>
+<input type="radio" name="q2"> Microsoft<br>
+<input type="radio" name="q2"> Sun Microsystems<br>
+<input type="radio" name="q2"> Google<br>
+</div>
+
+<div class="question">
+3. Java is which type of language?<br>
+<input type="radio" name="q3"> Procedural<br>
+<input type="radio" name="q3"> Object-Oriented<br>
+<input type="radio" name="q3"> Assembly<br>
+</div>
+
+<div class="question">
+4. Which keyword is used to define a class?<br>
+<input type="radio" name="q4"> function<br>
+<input type="radio" name="q4"> class<br>
+<input type="radio" name="q4"> define<br>
+</div>
+
+<div class="question">
+5. Which method is the entry point of Java?<br>
+<input type="radio" name="q5"> start()<br>
+<input type="radio" name="q5"> main()<br>
+<input type="radio" name="q5"> run()<br>
+</div>
+
+<div class="question">
+6. Which keyword is used for inheritance?<br>
+<input type="radio" name="q6"> implements<br>
+<input type="radio" name="q6"> extends<br>
+<input type="radio" name="q6"> inherits<br>
+</div>
+
+<div class="question">
+7. What is JVM?<br>
+<input type="radio" name="q7"> Java Variable Machine<br>
+<input type="radio" name="q7"> Java Virtual Machine<br>
+<input type="radio" name="q7"> Java Verified Machine<br>
+</div>
+
+<div class="question">
+8. Which symbol is used to end a statement?<br>
+<input type="radio" name="q8"> .<br>
+<input type="radio" name="q8"> ;<br>
+<input type="radio" name="q8"> :<br>
+</div>
+
+<div class="question">
+9. Which data type is used for text?<br>
+<input type="radio" name="q9"> int<br>
+<input type="radio" name="q9"> String<br>
+<input type="radio" name="q9"> char<br>
+</div>
+
+<div class="question">
+10. Which keyword is used to create an object?<br>
+<input type="radio" name="q10"> make<br>
+<input type="radio" name="q10"> new<br>
+<input type="radio" name="q10"> create<br>
+</div>
+
+<div class="question">
+11. Which loop is used when the number of iterations is known?<br>
+<input type="radio" name="q11"> for<br>
+<input type="radio" name="q11"> while<br>
+<input type="radio" name="q11"> do-while<br>
+</div>
+
+<div class="question">
+12. What is encapsulation?<br>
+<input type="radio" name="q12"> Binding data and methods<br>
+<input type="radio" name="q12"> Hiding data<br>
+<input type="radio" name="q12"> Both<br>
+</div>
+
+<div class="question">
+13. Which keyword is used to inherit interface?<br>
+<input type="radio" name="q13"> extends<br>
+<input type="radio" name="q13"> implements<br>
+<input type="radio" name="q13"> interface<br>
+</div>
+
+<div class="question">
+14. Which exception is unchecked?<br>
+<input type="radio" name="q14"> IOException<br>
+<input type="radio" name="q14"> RuntimeException<br>
+<input type="radio" name="q14"> SQLException<br>
+</div>
+
+<div class="question">
+15. Which keyword is used to handle exceptions?<br>
+<input type="radio" name="q15"> catch<br>
+<input type="radio" name="q15"> handle<br>
+<input type="radio" name="q15"> error<br>
+</div>
+
+<div class="question">
+16. Which access modifier is most restrictive?<br>
+<input type="radio" name="q16"> public<br>
+<input type="radio" name="q16"> private<br>
+<input type="radio" name="q16"> protected<br>
+</div>
+
+<div class="question">
+17. Which collection is ordered?<br>
+<input type="radio" name="q17"> Set<br>
+<input type="radio" name="q17"> List<br>
+<input type="radio" name="q17"> Map<br>
+</div>
+
+<div class="question">
+18. Which keyword is used for constant?<br>
+<input type="radio" name="q18"> static<br>
+<input type="radio" name="q18"> final<br>
+<input type="radio" name="q18"> const<br>
+</div>
+
+<div class="question">
+19. Java files have which extension?<br>
+<input type="radio" name="q19"> .java<br>
+<input type="radio" name="q19"> .js<br>
+<input type="radio" name="q19"> .class<br>
+</div>
+
+<div class="question">
+20. Which operator is used for comparison?<br>
+<input type="radio" name="q20"> =<br>
+<input type="radio" name="q20"> ==<br>
+<input type="radio" name="q20"> :=<br>
+</div>
+
+<br>
+<input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>
