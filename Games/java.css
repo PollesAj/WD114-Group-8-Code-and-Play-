@@ -1,0 +1,256 @@
+
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Press Start 2P', cursive;
+background:linear-gradient(to bottom,#1a1b2a,#2a2b40,#1b1c30);
+color:#e6ffe6;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+}
+
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 25% 25%, rgba(180,200,255,0.06), transparent 40%),
+radial-gradient(circle at 75% 75%, rgba(150,180,255,0.06), transparent 40%);
+z-index:-1;
+}
+
+.game-box{
+width:600px;
+background:rgba(30,28,45,0.9);
+border:2px solid #aabbee;
+padding:30px;
+border-radius:12px;
+box-shadow:0 0 25px rgba(170,187,238,0.4);
+text-align:center;
+position:relative;
+}
+
+h2{
+color:#aabbee;
+margin-bottom:20px;
+text-shadow:0 0 15px #88bbff;
+}
+
+.progress-bar{
+height:15px;
+background:#1b1c30;
+border:1px solid #aabbee;
+margin-bottom:20px;
+border-radius:10px;
+overflow:hidden;
+}
+
+.progress{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#88bbff,#aabbee);
+transition:0.4s;
+}
+
+.question{
+font-size:12px;
+margin-bottom:20px;
+min-height:60px;
+animation:fadeIn 0.5s;
+}
+
+.option{
+display:block;
+background:#2a2940;
+border:1px solid #aabbee;
+padding:12px;
+margin:10px 0;
+cursor:pointer;
+transition:0.3s;
+border-radius:6px;
+}
+
+.option:hover{
+background:#3b3c60;
+box-shadow:0 0 10px #88bbff;
+}
+
+.option.selected{
+background:#aabbee;
+color:#1b1c30;
+}
+
+.next-btn{
+margin-top:20px;
+padding:12px 25px;
+background:linear-gradient(145deg,#334466,#556688);
+border:2px solid #aabbee;
+color:#aabbee;
+cursor:pointer;
+border-radius:8px;
+transition:0.3s;
+}
+
+.next-btn:hover{
+background:#aabbee;
+color:#1b1c30;
+box-shadow:0 0 20px #aabbee;
+}
+
+.character{
+position:absolute;
+bottom:-20px;
+right:20px;
+font-size:40px;
+animation:float 1s infinite alternate;
+}
+
+@keyframes float{
+from{transform:translateY(0);}
+to{transform:translateY(-5px);}
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(10px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+.player-ui {
+  margin-bottom: 20px;
+}
+
+#character {
+  font-size: 50px;
+  transition: 0.3s;
+}
+
+#reaction {
+  margin-top: 10px;
+  font-size: 10px;
+  color: #aabbee;
+  min-height: 20px;
+}
+
+.correct-anim {
+  animation: happy 0.5s;
+  color: #4CAF50;
+}
+
+@keyframes happy {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+.wrong-anim {
+  animation: shake 0.4s;
+  color: #ff4d4d;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 20, 0.7);
+  z-index: -1;
+}
+
+.home-screen{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+background:rgba(30,28,45,0.9);
+padding:40px;
+border:2px solid #aabbee;
+border-radius:12px;
+box-shadow:0 0 25px rgba(170,187,238,0.4);
+}
+
+.home-screen h1{
+color:#aabbee;
+margin-bottom:20px;
+text-shadow:0 0 15px #88bbff;
+}
+
+.home-screen p{
+margin-bottom:20px;
+color:#ccddee;
+font-size:12px;
+}
+
+.btn{
+padding:10px 20px;
+background:linear-gradient(145deg,#334466,#556688);
+border:2px solid #aabbee;
+color:#aabbee;
+cursor:pointer;
+border-radius:10px;
+transition:0.3s;
+font-size: 15px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn:hover{
+background:#aabbee;
+color:#1b1c30;
+box-shadow:0 0 20px #aabbee;
+}
+
+@keyframes borderBreath {
+  0% {
+    box-shadow: 0 0 15px rgba(170,187,238,0.4);
+    border-color: #aabbee;
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(170,187,238,0.7);
+    border-color: #88bbff;
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(170,187,238,0.4);
+    border-color: #aabbee;
+  }
+}
+
+.game-box {
+  animation: borderBreath 2.5s infinite;
+}
+
+.home-screen {
+  animation: borderBreath 2.5s infinite;
+}
+
+.btn {
+  animation: borderBreath 2.5s infinite;
+}
+```
