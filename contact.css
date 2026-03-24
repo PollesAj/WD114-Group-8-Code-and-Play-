@@ -6,7 +6,7 @@ box-sizing:border-box;
 }
 
 body{
-font-family:'Playfair Display',serif;
+font-family:Arial, Verdana, Geneva, Tahoma, sans-serif, sans-serif;
 background:linear-gradient(to bottom,#1a1b2a,#2a2b40,#1b1c30);
 color:#e6ffe6;
 line-height:1.6;
@@ -47,7 +47,7 @@ padding:20px 8%;
 
 .logo{
 font-family:'Press Start 2P',cursive;
-font-size:20px;
+font-size:23px;
 color:#aabbee;
 
 text-shadow:
