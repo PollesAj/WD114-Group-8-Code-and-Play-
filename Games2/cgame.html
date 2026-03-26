@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>C++ Dungeon Quiz</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<video autoplay muted loop id="bg-video">
+  <source src="Video/under.mp4" type="video/mp4">
+</video>
+
+<div id="home-screen" class="home-screen">
+  <h1>🌋 Welcome to C++ Inferno 🌋</h1>
+  <p>Answer correctly to conquer all 20 rooms and earn the key...</p>
+  <button class="btn" onclick="startGame()">Start Adventure</button>
+</div>
+
+<div id="game-screen" style="display:none;">
+  <div class="game-box">
+    <h2>C++ Dungeon Quiz</h2>
+
+    <div class="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <div class="player-ui">
+      <div id="character">🧙</div>
+      <div id="reaction">Ready...</div>
+    </div>
+
+    <div class="question" id="question"></div>
+    <div id="options"></div>
+    <button class="next-btn" onclick="nextQuestion()">Next Room →</button>
+  </div>
+</div>
+
+<script>
+
+const quiz = [
+{q:"1. Which line starts a C++ program?",a:["start()","int main()","begin()"],correct:1,
+ explanation:"int main() is the entry point of every C++ program."},
+{q:"2. Which keyword is used to include libraries in C++?",a:["import","#include","using"],correct:1,
+ explanation:"#include is used to include header files or libraries."},
+{q:"3. Which library is used for input and output?",a:["iostream","math","system"],correct:0,
+ explanation:"The iostream library provides cout and cin for input/output."},
+{q:"4. Which command prints output?",a:["cout","cin","print"],correct:0,
+ explanation:"cout prints output to the console."},
+{q:"5. Which command receives input?",a:["cout","cin","input"],correct:1,
+ explanation:"cin reads input from the user."},
+{q:"6. What is the correct variable declaration?",a:["int age;","age int;","integer age;"],correct:0,
+ explanation:"int age; declares an integer variable named age."},
+{q:"7. Which symbol is used with cin?",a:["<<",">>","&&"],correct:1,
+ explanation:">> is used with cin to get user input."},
+{q:"8. Which loop repeats code many times?",a:["for","if","break"],correct:0,
+ explanation:"A for loop is used to repeat code a specific number of times."},
+{q:"9. Which keyword is used for decision making?",a:["choose","if","decide"],correct:1,
+ explanation:"if is used to execute code conditionally."},
+{q:"10. What symbol means greater than?",a:[">","<<","="],correct:0,
+ explanation:"> compares two values to see if the first is greater than the second."},
+{q:"11. Which data type stores whole numbers?",a:["int","string","char"],correct:0,
+ explanation:"int stores whole numbers without decimals."},
+{q:"12. Which data type stores text?",a:["string","int","float"],correct:0,
+ explanation:"string stores sequences of characters (text)."},
+{q:"13. Which keyword is used to define a function?",a:["void/data type","return","function"],correct:0,
+ explanation:"Functions are defined using a return type (like void) and the function name."},
+{q:"14. Which keyword creates a loop?",a:["while","class","return"],correct:0,
+ explanation:"while is a loop that executes as long as a condition is true."},
+{q:"15. Which keyword is used to return a value?",a:["return","send","output"],correct:0,
+ explanation:"return exits a function and optionally returns a value."},
+{q:"16. What is an algorithm?",a:["Step-by-step solution","A variable","A loop"],correct:0,
+ explanation:"An algorithm is a sequence of steps to solve a problem."},
+{q:"17. What does cout << \"Hello\" do?",a:["Displays Hello","Takes input","Creates variable"],correct:0,
+ explanation:"cout << \"Hello\" prints Hello to the console."},
+{q:"18. What symbol is used for comments?",a:["//","##","**"],correct:0,
+ explanation:"// starts a single-line comment in C++."},
+{q:"19. What does break do?",a:["Stops the loop","Starts a loop","Prints text"],correct:0,
+ explanation:"break exits the current loop immediately."},
+{q:"20. Which is a valid C++ loop?",a:["for(int i=0;i<5;i++)","loop(i<5)","repeat 5"],correct:0,
+ explanation:"for(int i=0;i<5;i++) is the standard syntax for a for loop."}
+];
+
+let current = 0;
+let score = 0;
+let wrong = 0;
+let answered = false;
+
+function loadQuestion(){
+  answered = false;
+
+  document.getElementById("question").innerText = quiz[current].q;
+
+  let optionsHTML = "";
+  quiz[current].a.forEach((opt,index)=>{
+    optionsHTML += `<div class="option" onclick="selectOption(${index}, this)">${opt}</div>`;
+  });
+
+  document.getElementById("options").innerHTML = optionsHTML;
+
+  document.getElementById("progress").style.width =
+  ((current)/quiz.length)*100 + "%";
+}
+
+function startGame(){
+  document.getElementById("home-screen").style.display = "none";
+  document.getElementById("game-screen").style.display = "block";
+  loadQuestion();
+}
+
+function selectOption(index,el){
+  if(answered) return;
+
+  answered = true;
+
+  let options = document.querySelectorAll(".option");
+  let character = document.getElementById("character");
+  let reaction = document.getElementById("reaction");
+
+  options.forEach((opt,i)=>{
+    opt.style.pointerEvents = "none";
+    if(i === quiz[current].correct){
+      opt.style.background = "#4CAF50";
+      opt.style.color = "#fff";
+    } else if(i === index){
+      opt.style.background = "#ff4d4d";
+      opt.style.color = "#fff";
+    }
+  });
+
+  if(index === quiz[current].correct){
+    score++;
+    character.textContent = "😄";
+    reaction.innerHTML = `Correct! ⚔️<br><small>${quiz[current].explanation}</small>`;
+  } else {
+    wrong++;
+    character.textContent = "😡";
+    reaction.innerHTML = `Wrong! 💀<br><small>${quiz[current].explanation}</small>`;
+  }
+
+  setTimeout(()=>{
+    character.textContent = "🧙";
+    reaction.textContent = "Next move...";
+  },30000);
+}
+
+function nextQuestion(){
+  if(!answered){
+    alert("Choose your answer first!");
+    return;
+  }
+
+  current++;
+
+  if(current >= quiz.length){
+    const pass = score >= 15;
+
+    document.querySelector(".game-box").innerHTML = `
+      <h2>${pass ? "🗝️ Key Obtained! 🗝️" : "💀 Dungeon Failed 💀"}</h2>
+      <p>✅ Correct: ${score}</p>
+      <p>❌ Wrong: ${wrong}</p>
+      <p>${pass ? "You may enter the next dungeon..." : "Score at least 15 to pass."}</p>
+      <br>
+      <button class="btn" onclick="location.reload()">🔁 Try Again</button>
+      <a href="../landingpage2.html" class="btn">🏠 Home</a>
+      ${pass ? '<a href="../../Games3/ht.html" class="btn">➡️ Proceed</a>' : ''}
+    `;
+    return;
+  }
+
+  loadQuestion();
+}
+
+</script>
+
+</body>
+</html>

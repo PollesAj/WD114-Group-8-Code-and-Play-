@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HTML Dungeon Quiz</title>
+<link rel="stylesheet" href="ht.css">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<video autoplay muted loop id="bg-video">
+  <source src="Video/Ocean.mp4" type="video/mp4">
+</video>
+
+<div id="home-screen" class="home-screen">
+  <h1>🌊 Welcome to HTML Safari 🌊</h1>
+  <p>Answer correctly to conquer all 20 rooms and earn the key...</p>
+  <button class="btn" onclick="startGame()">Start Adventure</button>
+</div>
+
+<div id="game-screen" style="display:none;">
+  <div class="game-box">
+    <h2>HTML Dungeon Quiz</h2>
+
+    <div class="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <div class="player-ui">
+      <div id="character">🧙</div>
+      <div id="reaction">Ready...</div>
+    </div>
+
+    <div class="question" id="question"></div>
+    <div id="options"></div>
+    <button class="next-btn" onclick="nextQuestion()">Next Room →</button>
+  </div>
+</div>
+
+<script>
+const quiz = [
+  {q:"1. What does HTML stand for?",a:["Hyper Trainer Marking Language","Hyper Text Markup Language","Hyper Text Marketing Language","Hyper Tool Multi Language"],correct:1,
+   explanation:"HTML stands for Hyper Text Markup Language, used to structure web content."},
+  {q:"2. Which tag is used to create a paragraph?",a:["&lt;para&gt;","&lt;p&gt;","&lt;text&gt;","&lt;pg&gt;"],correct:1,
+   explanation:"The <p> tag defines a paragraph in HTML."},
+  {q:"3. Which tag is used for the largest heading?",a:["&lt;h6&gt;","&lt;heading&gt;","&lt;h1&gt;","&lt;head&gt;"],correct:2,
+   explanation:"<h1> defines the largest heading; h1-h6 decrease in size."},
+  {q:"4. Which tag is used to insert an image?",a:["&lt;image&gt;","&lt;img&gt;","&lt;pic&gt;","&lt;src&gt;"],correct:1,
+   explanation:"The <img> tag is used to embed images in HTML."},
+  {q:"5. What attribute is used to provide an image source?",a:["link","src","href","alt"],correct:1,
+   explanation:"The src attribute specifies the path to the image file."},
+  {q:"6. Which tag creates a hyperlink?",a:["&lt;link&gt;","&lt;a&gt;","&lt;href&gt;","&lt;url&gt;"],correct:1,
+   explanation:"The <a> tag is used to create clickable links."},
+  {q:"7. What attribute is used with <a> to specify the link?",a:["src","link","href","url"],correct:2,
+   explanation:"The href attribute specifies the destination URL of the link."},
+  {q:"8. Which tag is used for a line break?",a:["&lt;lb&gt;","&lt;break&gt;","&lt;br&gt;","&lt;line&gt;"],correct:2,
+   explanation:"<br> inserts a line break in HTML content."},
+  {q:"9. Which tag is used for unordered lists?",a:["&lt;ol&gt;","&lt;ul&gt;","&lt;li&gt;","&lt;list&gt;"],correct:1,
+   explanation:"<ul> creates an unordered (bulleted) list."},
+  {q:"10. Which tag is used for list items?",a:["&lt;ul&gt;","&lt;ol&gt;","&lt;li&gt;","&lt;item&gt;"],correct:2,
+   explanation:"<li> defines each item inside a list (<ul> or <ol>)."},
+  {q:"11. Which tag defines the title of a webpage?",a:["&lt;meta&gt;","&lt;head&gt;","&lt;title&gt;","&lt;header&gt;"],correct:2,
+   explanation:"<title> specifies the title shown on the browser tab."},
+  {q:"12. Where is the <title> tag placed?",a:["Inside &lt;body&gt;","Inside &lt;head&gt;","Outside &lt;html&gt;","Inside &lt;footer&gt;"],correct:1,
+   explanation:"<title> is placed inside the <head> section of the HTML document."},
+  {q:"13. Which tag contains the visible content of a webpage?",a:["&lt;head&gt;","&lt;title&gt;","&lt;body&gt;","&lt;main&gt;"],correct:2,
+   explanation:"<body> contains all the visible content displayed on the webpage."},
+  {q:"14. Which HTML tag is used to make text bold?",a:["&lt;bold&gt;","&lt;strong&gt;","&lt;b&gt;","Both B and C"],correct:3,
+   explanation:"Both <strong> and <b> make text bold, but <strong> also indicates importance."},
+  {q:"15. Which tag is used to create an ordered list?",a:["&lt;ul&gt;","&lt;ol&gt;","&lt;li&gt;","&lt;order&gt;"],correct:1,
+   explanation:"<ol> creates a numbered (ordered) list in HTML."},
+  {q:"16. What is the correct HTML element for inserting a horizontal line?",a:["&lt;line&gt;","&lt;hr&gt;","&lt;br&gt;","&lt;hl&gt;"],correct:1,
+   explanation:"<hr> inserts a horizontal rule (line) across the page."},
+  {q:"17. Which attribute provides alternative text for images?",a:["title","alt","src","desc"],correct:1,
+   explanation:"The alt attribute specifies alternative text displayed if the image cannot load."},
+  {q:"18. Which tag is used to define a table?",a:["&lt;tb&gt;","&lt;table&gt;","&lt;tr&gt;","&lt;td&gt;"],correct:1,
+   explanation:"<table> is used to define a table structure."},
+  {q:"19. Which tag defines a table row?",a:["&lt;td&gt;","&lt;tr&gt;","&lt;th&gt;","&lt;row&gt;"],correct:1,
+   explanation:"<tr> defines a row within a table."},
+  {q:"20. Which tag defines a table cell?",a:["&lt;tc&gt;","&lt;td&gt;","&lt;tr&gt;","&lt;cell&gt;"],correct:1,
+   explanation:"<td> defines a cell within a table row."}
+];
+
+let current = 0;
+let score = 0;
+let wrong = 0;
+let answered = false;
+
+function loadQuestion(){
+  answered = false;
+
+  document.getElementById("question").innerText = quiz[current].q;
+
+  let optionsHTML = "";
+  quiz[current].a.forEach((opt,index)=>{
+    optionsHTML += `<div class="option" onclick="selectOption(${index}, this)">${opt}</div>`;
+  });
+
+  document.getElementById("options").innerHTML = optionsHTML;
+
+  document.getElementById("progress").style.width =
+  ((current)/quiz.length)*100 + "%";
+}
+
+function startGame(){
+  document.getElementById("home-screen").style.display = "none";
+  document.getElementById("game-screen").style.display = "block";
+  loadQuestion();
+}
+
+function selectOption(index,el){
+  if(answered) return;
+
+  answered = true;
+
+  let options = document.querySelectorAll(".option");
+  let character = document.getElementById("character");
+  let reaction = document.getElementById("reaction");
+
+  options.forEach((opt,i)=>{
+    opt.style.pointerEvents = "none";
+    if(i === quiz[current].correct){
+      opt.style.background = "#4CAF50";
+      opt.style.color = "#fff";
+    } else if(i === index){
+      opt.style.background = "#ff4d4d";
+      opt.style.color = "#fff";
+    }
+  });
+
+  if(index === quiz[current].correct){
+    score++;
+    character.textContent = "😄";
+    reaction.innerHTML = `Correct! ⚔️<br><small>${quiz[current].explanation}</small>`;
+  } else {
+    wrong++;
+    character.textContent = "😡";
+    reaction.innerHTML = `Wrong! 💀<br><small>${quiz[current].explanation}</small>`;
+  }
+
+  setTimeout(()=>{
+    character.textContent = "🧙";
+    reaction.textContent = "Next move...";
+  },30000);
+}
+
+function nextQuestion(){
+  if(!answered){
+    alert("Choose your answer first!");
+    return;
+  }
+
+  current++;
+
+  if(current >= quiz.length){
+    const pass = score >= 15;
+
+    document.querySelector(".game-box").innerHTML = `
+      <h2>${pass ? "🗝️ Key Obtained! 🗝️" : "💀 Dungeon Failed 💀"}</h2>
+      <p>✅ Correct: ${score}</p>
+      <p>❌ Wrong: ${wrong}</p>
+      <p>${pass ? "You may enter the next dungeon..." : "Score at least 15 to pass."}</p>
+      <br>
+      <button class="btn" onclick="location.reload()">🔁 Try Again</button>
+      <a href="../landingpage2.html" class="btn">🏠 Home</a>
+    `;
+    return;
+  }
+
+  loadQuestion();
+}
+
+</script>
+
+</body>
+</html>
