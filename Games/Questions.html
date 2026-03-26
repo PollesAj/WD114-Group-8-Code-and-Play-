@@ -13,7 +13,7 @@
 </video>
 
 <div id="home-screen" class="home-screen">
-  <h1>🏰 Welcome to Java Dungeon</h1>
+  <h1>🌲 Welcome to Java Dungeon Forest 🌲</h1>
   <p>Answer correctly to conquer all 20 rooms and earn the key...</p>
   <button class="btn" onclick="startGame()">Start Adventure</button>
 </div>
@@ -38,27 +38,128 @@
 
 
 <script>
+
 const quiz = [
-  {q:"1. What is Java?",a:["A programming language","A database","An operating system"],correct:0},
-  {q:"2. Who developed Java?",a:["Microsoft","Sun Microsystems","Google"],correct:1},
-  {q:"3. Java is which type of language?",a:["Procedural","Object-Oriented","Assembly"],correct:1},
-  {q:"4. Which keyword is used to define a class?",a:["function","class","define"],correct:1},
-  {q:"5. Which method is the entry point of Java?",a:["start()","main()","run()"],correct:1},
-  {q:"6. Which keyword is used for inheritance?",a:["implements","extends","inherits"],correct:1},
-  {q:"7. What is JVM?",a:["Java Variable Machine","Java Virtual Machine","Java Verified Machine"],correct:1},
-  {q:"8. Which symbol is used to end a statement?",a:[".",";","]"],correct:1},
-  {q:"9. Which data type is used for text?",a:["int","String","char"],correct:1},
-  {q:"10. Which keyword is used to create an object?",a:["make","new","create"],correct:1},
-  {q:"11. Which loop is used when the number of iterations is known?",a:["for","while","do-while"],correct:0},
-  {q:"12. What is encapsulation?",a:["Binding data and methods","Hiding data","Both"],correct:2},
-  {q:"13. Which keyword is used to inherit interface?",a:["extends","implements","interface"],correct:1},
-  {q:"14. Which exception is unchecked?",a:["IOException","RuntimeException","SQLException"],correct:1},
-  {q:"15. Which keyword is used to handle exceptions?",a:["catch","handle","error"],correct:0},
-  {q:"16. Which access modifier is most restrictive?",a:["public","private","protected"],correct:1},
-  {q:"17. Which collection is ordered?",a:["Set","List","Map"],correct:1},
-  {q:"18. Which keyword is used for constant?",a:["static","final","const"],correct:1},
-  {q:"19. Java files have which extension?",a:[".java",".js",".class"],correct:0},
-  {q:"20. Which operator is used for comparison?",a:["=","==",":="],correct:1}
+  {
+    q: "1. What is Java?",
+    a: ["A programming language","A database","An operating system"],
+    correct: 0,
+    explanation: "Java is a high-level programming language used to develop applications across platforms."
+  },
+  {
+    q: "2. Who developed Java?",
+    a: ["Microsoft","Sun Microsystems","Google"],
+    correct: 1,
+    explanation: "Java was developed by Sun Microsystems in 1995."
+  },
+  {
+    q: "3. Java is which type of language?",
+    a: ["Procedural","Object-Oriented","Assembly"],
+    correct: 1,
+    explanation: "Java is an object-oriented language, which means it uses classes and objects to structure code."
+  },
+  {
+    q: "4. Which keyword is used to define a class?",
+    a: ["function","class","define"],
+    correct: 1,
+    explanation: "The `class` keyword is used in Java to define a class."
+  },
+  {
+    q: "5. Which method is the entry point of Java?",
+    a: ["start()","main()","run()"],
+    correct: 1,
+    explanation: "The `main()` method is the entry point of a Java program where execution begins."
+  },
+  {
+    q: "6. Which keyword is used for inheritance?",
+    a: ["implements","extends","inherits"],
+    correct: 1,
+    explanation: "The `extends` keyword is used when a class inherits from another class."
+  },
+  {
+    q: "7. What is JVM?",
+    a: ["Java Variable Machine","Java Virtual Machine","Java Verified Machine"],
+    correct: 1,
+    explanation: "JVM stands for Java Virtual Machine, which runs Java bytecode on any platform."
+  },
+  {
+    q: "8. Which symbol is used to end a statement?",
+    a: [".",";","]"],
+    correct: 1,
+    explanation: "In Java, each statement ends with a semicolon `;`."
+  },
+  {
+    q: "9. Which data type is used for text?",
+    a: ["int","String","char"],
+    correct: 1,
+    explanation: "`String` is used for text (a sequence of characters), while `char` is a single character."
+  },
+  {
+    q: "10. Which keyword is used to create an object?",
+    a: ["make","new","create"],
+    correct: 1,
+    explanation: "The `new` keyword is used to create new objects in Java."
+  },
+  {
+    q: "11. Which loop is used when the number of iterations is known?",
+    a: ["for","while","do-while"],
+    correct: 0,
+    explanation: "The `for` loop is ideal when the number of iterations is predetermined."
+  },
+  {
+    q: "12. What is encapsulation?",
+    a: ["Binding data and methods","Hiding data","Both"],
+    correct: 2,
+    explanation: "Encapsulation is both binding data and methods together and hiding internal details from outside access."
+  },
+  {
+    q: "13. Which keyword is used to inherit interface?",
+    a: ["extends","implements","interface"],
+    correct: 1,
+    explanation: "The `implements` keyword is used when a class uses (inherits) an interface."
+  },
+  {
+    q: "14. Which exception is unchecked?",
+    a: ["IOException","RuntimeException","SQLException"],
+    correct: 1,
+    explanation: "RuntimeExceptions are unchecked, meaning the compiler doesn’t force you to handle them."
+  },
+  {
+    q: "15. Which keyword is used to handle exceptions?",
+    a: ["catch","handle","error"],
+    correct: 0,
+    explanation: "The `catch` block is used to handle exceptions thrown in the `try` block."
+  },
+  {
+    q: "16. Which access modifier is most restrictive?",
+    a: ["public","private","protected"],
+    correct: 1,
+    explanation: "`private` access restricts visibility to within the same class only, making it the most restrictive."
+  },
+  {
+    q: "17. Which collection is ordered?",
+    a: ["Set","List","Map"],
+    correct: 1,
+    explanation: "A `List` maintains the order of elements as they are inserted."
+  },
+  {
+    q: "18. Which keyword is used for constant?",
+    a: ["static","final","const"],
+    correct: 1,
+    explanation: "The `final` keyword declares constants whose values cannot be changed."
+  },
+  {
+    q: "19. Java files have which extension?",
+    a: [".java",".js",".class"],
+    correct: 0,
+    explanation: "Java source files always have the `.java` extension."
+  },
+  {
+    q: "20. Which operator is used for comparison?",
+    a: ["=","==",":="],
+    correct: 1,
+    explanation: "The `==` operator is used to compare primitive values in Java, whereas `=` is for assignment."
+  }
 ];
 
 let current = 0;
@@ -120,7 +221,7 @@ function retryGame(){
   loadQuestion();
 }
 
-function selectOption(index,el){
+function selectOption(index, el){
   if(answered) return;
 
   selected = index;
@@ -147,18 +248,18 @@ function selectOption(index,el){
     score++;
     character.textContent = "😄";
     character.classList.add("correct-anim");
-    reaction.textContent = "Correct! You strike the enemy! ⚔️";
+    reaction.innerHTML = `Correct! You strike the enemy! ⚔️<br><small>${quiz[current].explanation}</small>`;
   } else {
     wrong++;
     character.textContent = "😡";
     character.classList.add("wrong-anim");
-    reaction.textContent = "Wrong! You took damage! 💀";
+    reaction.innerHTML = `Wrong! You took damage! 💀<br><small>${quiz[current].explanation}</small>`;
   }
 
   setTimeout(()=>{
     character.textContent = "🧙";
     reaction.textContent = "Next move...";
-  },1000);
+  },30000); // Give time for explanation to read
 }
 
 function nextQuestion(){
@@ -173,14 +274,14 @@ function nextQuestion(){
     const pass = score >= 15;
 
     let resultHTML = `
-      <h2>${pass ? "🗝️ Key Obtained!" : "💀 Dungeon Failed"}</h2>
+      <h2>${pass ? "🗝️ Key Obtained! 🗝️" : "💀 Dungeon Failed 💀"}</h2>
       <p>✅ Correct: ${score}</p>
       <p>❌ Wrong: ${wrong}</p>
       <p>${pass ? "You may enter the next dungeon..." : "Score at least 15 to earn the key."}</p>
       <br>
       <button class="btn" onclick="retryGame()">🔁 Try Again</button>
       <a href="../landingpage2.html" class="btn">🏠 Home</a>
-      ${pass ? '<a href="next-dungeon.html" class="btn">➡️ Proceed</a>' : ''}
+      ${pass ? '<a href="../../Games2/cgame.html" class="btn">➡️ Proceed</a>' : ''}
     `;
 
     document.querySelector(".game-box").innerHTML = resultHTML;
