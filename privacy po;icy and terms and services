@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code and Play - Legal</title>
+    <link rel="stylesheet" href="landingpagestyle2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo"><h3>CODE AND PLAY</h3></div>
+        <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#topics">Topics</a></li>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#join">Join</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="contents">
+    <div class="container landing-hero">
+        <div class="landing-hero-copy">
+            <p class="hero-kicker">Stay informed while you play</p>
+            <h1>Privacy & Terms</h1>
+            <p class="subtitle">
+                We believe learning should be fun—and your data should be respected.
+                Here’s how Code and Play protects you and keeps the experience fair.
+            </p>
+
+            <div class="hero-buttons">
+                <label for="privacyToggle" class="btn btn-primary">View Privacy Policy</label>
+                <label for="termsToggle" class="btn btn-primary">View Terms</label>
+            </div>
+        </div>
+
+        <div class="landing-hero-panel">
+            <span class="hero-panel-label">Our Promise</span>
+            <h3>Safe, fair, and learner-first.</h3>
+            <div class="hero-panel-grid">
+                <div class="hero-panel-card">
+                    <strong>100%</strong>
+                    <span>No data selling</span>
+                </div>
+                <div class="hero-panel-card">
+                    <strong>Secure</strong>
+                    <span>Accounts & progress</span>
+                </div>
+                <div class="hero-panel-card">
+                    <strong>Fair</strong>
+                    <span>Community rules</span>
+                </div>
+            </div>
+            <p class="hero-panel-note">
+                Everything we do is designed to protect your progress and keep learning fun.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- TOGGLES -->
+<input type="checkbox" id="privacyToggle" class="legal-toggle">
+<input type="checkbox" id="termsToggle" class="legal-toggle">
+
+<!-- PRIVACY POLICY -->
+<div class="modal-overlay legal-modal">
+    <label for="privacyToggle" class="modal-backdrop"></label>
+    <div class="modal-content legal-card legal-modal-content">
+        <label for="privacyToggle" class="close">&times;</label>
+
+        <span class="legal-kicker">Privacy Policy</span>
+        <h2>Your data powers your progress—not our profit.</h2>
+
+        <p>
+            At <strong>Code and Play</strong>, we value your privacy. This policy explains
+            how we collect, use, and protect your information while you enjoy our
+            gamified learning platform.
+        </p>
+
+        <div class="legal-grid">
+            <article>
+                <h3>Information We Collect</h3>
+                <p>
+                    We collect your name, email, username, and learning progress such as
+                    scores, achievements, and completed challenges. Basic device
+                    information may also be collected for performance optimization.
+                </p>
+            </article>
+
+            <article>
+                <h3>How We Use Information</h3>
+                <p>
+                    Your data helps us manage your account, save your progress,
+                    personalize your experience, and improve platform performance.
+                </p>
+            </article>
+
+            <article>
+                <h3>Data Protection</h3>
+                <p>
+                    We implement security measures to protect your information. Your
+                    data is stored securely and only accessible when necessary.
+                </p>
+            </article>
+
+            <article>
+                <h3>Your Rights</h3>
+                <p>
+                    You can request to update, download, or delete your data anytime.
+                    You may also opt out of email notifications.
+                </p>
+            </article>
+
+            <article>
+                <h3>Third-Party Sharing</h3>
+                <p>
+                    We do not sell your personal data. We only share information when
+                    required for essential services or legal obligations.
+                </p>
+            </article>
+
+            <article>
+                <h3>Cookies</h3>
+                <p>
+                    Cookies help keep you logged in and improve your experience.
+                    You can disable cookies in your browser settings.
+                </p>
+            </article>
+        </div>
+
+        <p class="legal-footnote">
+            By using Code and Play, you agree to this Privacy Policy.
+        </p>
+    </div>
+</div>
+
+<!-- TERMS OF SERVICE -->
+<div class="modal-overlay legal-modal">
+    <label for="termsToggle" class="modal-backdrop"></label>
+    <div class="modal-content legal-card legal-modal-content">
+        <label for="termsToggle" class="close">&times;</label>
+
+        <span class="legal-kicker">Terms of Service</span>
+        <h2>Play fair. Learn honestly. Respect others.</h2>
+
+        <p>
+            These Terms of Service outline the rules for using Code and Play.
+            By accessing our platform, you agree to follow these guidelines.
+        </p>
+
+        <div class="legal-grid">
+            <article>
+                <h3>Account Responsibility</h3>
+                <p>
+                    You are responsible for maintaining the confidentiality of your
+                    account and ensuring your information is accurate.
+                </p>
+            </article>
+
+            <article>
+                <h3>Acceptable Use</h3>
+                <p>
+                    You agree not to misuse the platform, hack systems, cheat in
+                    challenges, or interfere with other users.
+                </p>
+            </article>
+
+            <article>
+                <h3>Intellectual Property</h3>
+                <p>
+                    All content including lessons, games, and designs belong to Code
+                    and Play and cannot be copied or redistributed without permission.
+                </p>
+            </article>
+
+            <article>
+                <h3>Progress & Rewards</h3>
+                <p>
+                    Achievements and rewards are part of the learning system and may
+                    change or reset as the platform evolves.
+                </p>
+            </article>
+
+            <article>
+                <h3>Account Suspension</h3>
+                <p>
+                    Accounts that violate rules may be suspended or permanently removed
+                    to protect the community.
+                </p>
+            </article>
+
+            <article>
+                <h3>Changes to Terms</h3>
+                <p>
+                    We may update these terms at any time. Continued use of the platform
+                    means you accept the updated terms.
+                </p>
+            </article>
+        </div>
+
+        <p class="legal-footnote">
+            If you do not agree with these terms, please discontinue use of the platform.
+        </p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Code and Play. All rights reserved.</p>
+    <p>
+        <label for="privacyToggle" class="auth-link footer-link">Privacy Policy</label> |
+        <label for="termsToggle" class="auth-link footer-link">Terms of Service</label>
+    </p>
+</footer>
+
+<script>
+    const privacyToggle = document.getElementById("privacyToggle");
+    const termsToggle = document.getElementById("termsToggle");
+
+    privacyToggle.addEventListener("change", () => {
+        if (privacyToggle.checked) {
+            termsToggle.checked = false;
+        }
+    });
+
+    termsToggle.addEventListener("change", () => {
+        if (termsToggle.checked) {
+            privacyToggle.checked = false;
+        }
+    });
+</script>
+
+</body>
+</html>
