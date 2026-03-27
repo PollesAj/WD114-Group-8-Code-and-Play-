@@ -1,0 +1,156 @@
+<!-- PRIVACY POLICY MODAL -->
+<div class="modal-overlay legal-modal privacy-modal">
+    <label for="privacyToggle" class="modal-backdrop" aria-label="Close privacy policy"></label>
+    <div class="modal-content legal-card legal-modal-content">
+        <label for="privacyToggle" class="close">&times;</label>
+
+        <span class="legal-kicker">Privacy Policy</span>
+        <h2>Your progress matters. So does your privacy.</h2>
+        <p>
+            Code and Play is committed to protecting your personal information. 
+            This Privacy Policy explains how we collect, use, and safeguard your data 
+            when you use our gamified learning platform.
+        </p>
+
+        <div class="legal-grid">
+
+            <article>
+                <h3>Information We Collect</h3>
+                <p>
+                    We collect basic personal information such as your name, email address, 
+                    username, and password when you create an account. We also collect 
+                    learning data such as scores, completed levels, achievements, and 
+                    gameplay activity.
+                </p>
+            </article>
+
+            <article>
+                <h3>How We Use Your Data</h3>
+                <p>
+                    Your information is used to create and manage your account, track your 
+                    progress, personalize your learning experience, and improve platform 
+                    performance. We may also send optional updates about new features and quests.
+                </p>
+            </article>
+
+            <article>
+                <h3>Data Protection</h3>
+                <p>
+                    We implement reasonable security measures to protect your data from 
+                    unauthorized access, loss, or misuse. However, no system is completely secure, 
+                    and we cannot guarantee absolute protection.
+                </p>
+            </article>
+
+            <article>
+                <h3>Sharing of Information</h3>
+                <p>
+                    We do not sell, trade, or rent your personal data. Your information may only 
+                    be shared when required by law or to protect the safety and integrity of the platform.
+                </p>
+            </article>
+
+            <article>
+                <h3>Cookies and Tracking</h3>
+                <p>
+                    We may use cookies or similar technologies to remember your login session 
+                    and improve user experience. You can disable cookies through your browser settings.
+                </p>
+            </article>
+
+            <article>
+                <h3>Your Rights</h3>
+                <p>
+                    You have the right to access, update, or delete your personal information. 
+                    You may also opt out of email updates at any time.
+                </p>
+            </article>
+
+        </div>
+
+        <p class="legal-footnote">
+            By using Code and Play, you agree to this Privacy Policy and consent to the collection 
+            and use of your information as described.
+        </p>
+    </div>
+</div>
+
+<!-- TERMS OF SERVICE MODAL -->
+<div class="modal-overlay legal-modal terms-modal">
+    <label for="termsToggle" class="modal-backdrop" aria-label="Close terms of service"></label>
+    <div class="modal-content legal-card legal-modal-content">
+        <label for="termsToggle" class="close">&times;</label>
+
+        <span class="legal-kicker">Terms of Service</span>
+        <h2>Play fair. Learn honestly. Respect the system.</h2>
+        <p>
+            These Terms of Service govern your use of the Code and Play platform. 
+            By creating an account or using our services, you agree to follow these rules.
+        </p>
+
+        <div class="legal-grid">
+
+            <article>
+                <h3>Account Responsibility</h3>
+                <p>
+                    You are responsible for maintaining the confidentiality of your account 
+                    credentials. Any activity under your account is your responsibility.
+                </p>
+            </article>
+
+            <article>
+                <h3>Acceptable Use</h3>
+                <p>
+                    You agree not to misuse the platform, attempt to hack or disrupt the system, 
+                    exploit bugs, or engage in any activity that harms other users or the service.
+                </p>
+            </article>
+
+            <article>
+                <h3>Educational Use</h3>
+                <p>
+                    All content, including lessons, quizzes, and games, is provided for personal 
+                    educational purposes only. Redistribution or resale is strictly prohibited.
+                </p>
+            </article>
+
+            <article>
+                <h3>Progress and Rewards</h3>
+                <p>
+                    Achievements, points, and progress are part of the learning experience and 
+                    hold no real-world monetary value.
+                </p>
+            </article>
+
+            <article>
+                <h3>Account Suspension</h3>
+                <p>
+                    We reserve the right to suspend or terminate accounts that violate these terms, 
+                    including cheating, abusive behavior, or fraudulent activity.
+                </p>
+            </article>
+
+            <article>
+                <h3>Changes to the Service</h3>
+                <p>
+                    We may update, modify, or discontinue features at any time without prior notice 
+                    to improve the platform.
+                </p>
+            </article>
+
+            <article>
+                <h3>Limitation of Liability</h3>
+                <p>
+                    Code and Play is provided "as is" without warranties. We are not liable for 
+                    any damages resulting from the use or inability to use the platform.
+                </p>
+            </article>
+
+        </div>
+
+        <p class="legal-footnote">
+            If you do not agree with these terms, please do not use the platform. Continued use 
+            means you accept these Terms of Service.
+        </p>
+    </div>
+</div>
