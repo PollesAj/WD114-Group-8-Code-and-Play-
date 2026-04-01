@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CodeNest — Admin Panel</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon">&#11041;</span>
+      <span class="logo-text">CodeNest</span>
+      <span class="logo-badge">Admin</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-group">
+        <span class="nav-label">Overview</span>
+        <a href="#" class="nav-item active" data-section="dashboard">
+          <span class="nav-icon">&#9781;</span> Dashboard
+        </a>
+        <a href="#" class="nav-item" data-section="analytics">
+          <span class="nav-icon">&#9650;</span> Analytics
+        </a>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-label">Platform</span>
+        <a href="#" class="nav-item" data-section="users">
+          <span class="nav-icon">&#9786;</span> User Management
+        </a>
+        <a href="#" class="nav-item" data-section="content">
+          <span class="nav-icon">&#9998;</span> Content
+        </a>
+        <a href="#" class="nav-item" data-section="gamification">
+          <span class="nav-icon">&#9733;</span> Gamification
+        </a>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-label">Community</span>
+        <a href="#" class="nav-item" data-section="moderation">
+          <span class="nav-icon">&#9873;</span> Moderation
+        </a>
+        <a href="#" class="nav-item" data-section="feedback">
+          <span class="nav-icon">&#128172;</span> Feedback & Support
+        </a>
+        <a href="#" class="nav-item" data-section="notifications">
+          <span class="nav-icon">&#9993;</span> Notifications
+        </a>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-label">System</span>
+        <a href="#" class="nav-item" data-section="roles">
+          <span class="nav-icon">&#128274;</span> Roles & Permissions
+        </a>
+        <a href="#" class="nav-item" data-section="audit">
+          <span class="nav-icon">&#9776;</span> Audit Logs
+        </a>
+        <a href="#" class="nav-item" data-section="settings">
+          <span class="nav-icon">&#9881;</span> Settings
+        </a>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="admin-avatar">SA</div>
+      <div class="admin-info">
+        <span class="admin-name">Super Admin</span>
+        <span class="admin-role">Full Access</span>
+      </div>
+      <span class="logout-btn">&#10007;</span>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1 class="page-title" id="page-title">Dashboard</h1>
+        <span class="page-date" id="page-date"></span>
+      </div>
+      <div class="topbar-right">
+        <div class="search-bar">
+          <span>&#128269;</span>
+          <input type="text" placeholder="Search anything..." />
+        </div>
+        <div class="notif-bell">&#128276; <span class="notif-dot"></span></div>
+      </div>
+    </header>
+
+    <!-- SECTION: DASHBOARD -->
+    <section class="section active" id="section-dashboard">
+      <div class="stat-grid">
+        <div class="stat-card accent-green">
+          <div class="stat-label">Total Users</div>
+          <div class="stat-value">24,831</div>
+          <div class="stat-sub">&#8593; 12.4% this week</div>
+        </div>
+        <div class="stat-card accent-yellow">
+          <div class="stat-label">Active Today</div>
+          <div class="stat-value">3,209</div>
+          <div class="stat-sub">&#8593; 5.1% vs yesterday</div>
+        </div>
+        <div class="stat-card accent-blue">
+          <div class="stat-label">Lessons Completed</div>
+          <div class="stat-value">18,540</div>
+          <div class="stat-sub">Today's total</div>
+        </div>
+        <div class="stat-card accent-red">
+          <div class="stat-label">Open Reports</div>
+          <div class="stat-value">17</div>
+          <div class="stat-sub">Needs attention</div>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="card">
+          <div class="card-header">Recent Signups</div>
+          <table class="data-table">
+            <thead><tr><th>User</th><th>Language</th><th>Joined</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>@kenzo</td><td>Python</td><td>Today</td><td><span class="badge green">Active</span></td></tr>
+              <tr><td>@crismar</td><td>JavaScript</td><td>Today</td><td><span class="badge green">Active</span></td></tr>
+              <tr><td>@khalid</td><td>C++</td><td>Yesterday</td><td><span class="badge yellow">Pending</span></td></tr>
+              <tr><td>@polles</td><td>CSS</td><td>Yesterday</td><td><span class="badge green">Active</span></td></tr>
+              <tr><td>@ahnj</td><td>Java</td><td>2d ago</td><td><span class="badge red">Suspended</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="card-header">Platform Health</div>
+          <div class="health-list">
+            <div class="health-item">
+              <span>API Response</span>
+              <div class="health-bar"><div class="health-fill" style="width:96%"></div></div>
+              <span class="health-val">96ms</span>
+            </div>
+            <div class="health-item">
+              <span>Uptime</span>
+              <div class="health-bar"><div class="health-fill green" style="width:99.9%"></div></div>
+              <span class="health-val">99.9%</span>
+            </div>
+            <div class="health-item">
+              <span>DB Load</span>
+              <div class="health-bar"><div class="health-fill yellow" style="width:43%"></div></div>
+              <span class="health-val">43%</span>
+            </div>
+            <div class="health-item">
+              <span>CDN Cache</span>
+              <div class="health-bar"><div class="health-fill" style="width:88%"></div></div>
+              <span class="health-val">88%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card wide">
+          <div class="card-header">Weekly Activity</div>
+          <div class="bar-chart">
+            <div class="bar-col"><div class="bar" style="height:55%"></div><span>Mon</span></div>
+            <div class="bar-col"><div class="bar" style="height:72%"></div><span>Tue</span></div>
+            <div class="bar-col"><div class="bar" style="height:60%"></div><span>Wed</span></div>
+            <div class="bar-col"><div class="bar active" style="height:88%"></div><span>Thu</span></div>
+            <div class="bar-col"><div class="bar" style="height:79%"></div><span>Fri</span></div>
+            <div class="bar-col"><div class="bar" style="height:45%"></div><span>Sat</span></div>
+            <div class="bar-col"><div class="bar" style="height:38%"></div><span>Sun</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: ANALYTICS -->
+    <section class="section" id="section-analytics">
+      <div class="stat-grid">
+        <div class="stat-card accent-blue">
+          <div class="stat-label">Avg. Session Time</div>
+          <div class="stat-value">34m</div>
+          <div class="stat-sub">Per user daily</div>
+        </div>
+        <div class="stat-card accent-green">
+          <div class="stat-label">Course Completions</div>
+          <div class="stat-value">1,204</div>
+          <div class="stat-sub">This month</div>
+        </div>
+        <div class="stat-card accent-yellow">
+          <div class="stat-label">Retention Rate</div>
+          <div class="stat-value">68%</div>
+          <div class="stat-sub">30-day active</div>
+        </div>
+        <div class="stat-card accent-red">
+          <div class="stat-label">Drop-off Rate</div>
+          <div class="stat-value">22%</div>
+          <div class="stat-sub">Lesson 3 avg.</div>
+        </div>
+      </div>
+      <div class="dashboard-grid">
+        <div class="card wide">
+          <div class="card-header">Top Courses by Completion</div>
+          <table class="data-table">
+            <thead><tr><th>Course</th><th>Language</th><th>Enrollees</th><th>Completed</th><th>Rate</th></tr></thead>
+            <tbody>
+              <tr><td>Python Basics</td><td>Python</td><td>8,200</td><td>5,904</td><td><span class="badge green">72%</span></td></tr>
+              <tr><td>JS Fundamentals</td><td>JavaScript</td><td>6,500</td><td>4,095</td><td><span class="badge green">63%</span></td></tr>
+              <tr><td>Intro to C++</td><td>C++</td><td>4,100</td><td>2,214</td><td><span class="badge yellow">54%</span></td></tr>
+              <tr><td>HTML & CSS</td><td>Web</td><td>9,800</td><td>7,448</td><td><span class="badge green">76%</span></td></tr>
+              <tr><td>Java OOP</td><td>Java</td><td>3,200</td><td>1,248</td><td><span class="badge red">39%</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-header">User Drop-off by Lesson</div>
+          <div class="bar-chart">
+            <div class="bar-col"><div class="bar" style="height:90%"></div><span>L1</span></div>
+            <div class="bar-col"><div class="bar" style="height:75%"></div><span>L2</span></div>
+            <div class="bar-col"><div class="bar active" style="height:50%"></div><span>L3</span></div>
+            <div class="bar-col"><div class="bar" style="height:45%"></div><span>L4</span></div>
+            <div class="bar-col"><div class="bar" style="height:38%"></div><span>L5</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: USERS -->
+    <section class="section" id="section-users">
+      <div class="section-toolbar">
+        <input type="text" class="toolbar-search" placeholder="Search users..."/>
+        <select class="toolbar-select">
+          <option>All Users</option>
+          <option>Active</option>
+          <option>Suspended</option>
+          <option>Pending</option>
+        </select>
+        <button class="btn-primary">+ Add User</button>
+      </div>
+      <div class="card">
+        <table class="data-table full">
+          <thead><tr><th>Username</th><th>Email</th><th>Role</th><th>XP</th><th>Joined</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr><td>@kenzo</td><td>kenzo@mail.com</td><td>Student</td><td>4,820</td><td>Jan 2025</td><td><span class="badge green">Active</span></td><td><div class="action-btns"><button class="act-btn">Edit</button><button class="act-btn red">Ban</button></div></td></tr>
+            <tr><td>@crismar</td><td>cris123@mail.com</td><td>Student</td><td>3,100</td><td>Feb 2025</td><td><span class="badge green">Active</span></td><td><div class="action-btns"><button class="act-btn">Edit</button><button class="act-btn red">Ban</button></div></td></tr>
+            <tr><td>@khalid</td><td>khalid21@mail.com</td><td>Student</td><td>900</td><td>Mar 2025</td><td><span class="badge red">Suspended</span></td><td><div class="action-btns"><button class="act-btn green">Restore</button><button class="act-btn red">Delete</button></div></td></tr>
+            <tr><td>@polles</td><td>pollesAj@mail.com</td><td>Moderator</td><td>12,400</td><td>Oct 2024</td><td><span class="badge yellow">Pending</span></td><td><div class="action-btns"><button class="act-btn">Edit</button><button class="act-btn red">Ban</button></div></td></tr>
+            <tr><td>@ahnj</td><td>ahnj223@mail.com</td><td>Student</td><td>6,750</td><td>Dec 2024</td><td><span class="badge green">Active</span></td><td><div class="action-btns"><button class="act-btn">Edit</button><button class="act-btn red">Ban</button></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION: CONTENT -->
+    <section class="section" id="section-content">
+      <div class="section-toolbar">
+        <input type="text" class="toolbar-search" placeholder="Search content..."/>
+        <select class="toolbar-select">
+          <option>All Types</option>
+          <option>Course</option>
+          <option>Lesson</option>
+          <option>Quiz</option>
+          <option>Challenge</option>
+        </select>
+        <button class="btn-primary">+ New Content</button>
+      </div>
+      <div class="card">
+        <table class="data-table full">
+          <thead><tr><th>Title</th><th>Type</th><th>Language</th><th>Author</th><th>Published</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr><td>Python Basics</td><td>Course</td><td>Python</td><td>Admin</td><td>Jan 2025</td><td><span class="badge green">Live</span></td><td><div class="action-btns"><button class="act-btn">Edit</button><button class="act-btn red">Unpublish</button></div></td></tr>
+            <tr><td>Variables & Types</td><td>Lesson</td><td>Python</td><td>Admin</td><td>Jan 2025</td><td><span class="badge green">Live</span></td><td><div class="action-btns"><button class="act-btn">Edit</button><button class="act-btn red">Unpublish</button></div></td></tr>
+            <tr><td>JS Arrays Quiz</td><td>Quiz</td><td>JavaScript</td><td>Editor</td><td>Feb 2025</td><td><span class="badge yellow">Draft</span></td><td><div class="action-btns"><button class="act-btn green">Publish</button><button class="act-btn">Edit</button></div></td></tr>
+            <tr><td>Pointer Challenge</td><td>Challenge</td><td>C++</td><td>Admin</td><td>Mar 2025</td><td><span class="badge green">Live</span></td><td><div class="action-btns"><button class="act-btn">Edit</button><button class="act-btn red">Unpublish</button></div></td></tr>
+            <tr><td>OOP Concepts</td><td>Course</td><td>Java</td><td>Editor</td><td>—</td><td><span class="badge red">Archived</span></td><td><div class="action-btns"><button class="act-btn green">Restore</button><button class="act-btn red">Delete</button></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION: GAMIFICATION -->
+    <section class="section" id="section-gamification">
+      <div class="dashboard-grid">
+        <div class="card">
+          <div class="card-header">XP Settings</div>
+          <div class="form-group">
+            <label>Lesson Completion XP</label>
+            <input type="number" class="form-input" value="50"/>
+          </div>
+          <div class="form-group">
+            <label>Quiz Pass XP</label>
+            <input type="number" class="form-input" value="100"/>
+          </div>
+          <div class="form-group">
+            <label>Daily Streak Bonus</label>
+            <input type="number" class="form-input" value="25"/>
+          </div>
+          <div class="form-group">
+            <label>Challenge Solved XP</label>
+            <input type="number" class="form-input" value="200"/>
+          </div>
+          <button class="btn-primary" style="margin-top:12px">Save XP Config</button>
+        </div>
+        <div class="card">
+          <div class="card-header">Badges</div>
+          <div class="badge-grid">
+            <div class="badge-item"><span>&#127942;</span><small>First Lesson</small></div>
+            <div class="badge-item"><span>&#128293;</span><small>7-Day Streak</small></div>
+            <div class="badge-item"><span>&#128640;</span><small>Course Done</small></div>
+            <div class="badge-item"><span>&#9889;</span><small>Speed Run</small></div>
+            <div class="badge-item"><span>&#127881;</span><small>Top Score</small></div>
+            <div class="badge-item add-badge">&#43; New</div>
+          </div>
+        </div>
+        <div class="card wide">
+          <div class="card-header">Leaderboard Top 5</div>
+          <table class="data-table">
+            <thead><tr><th>Rank</th><th>User</th><th>XP</th><th>Streak</th><th>Badges</th></tr></thead>
+            <tbody>
+              <tr><td>&#127945; 1</td><td>@void_ptr</td><td>12,400</td><td>34 days</td><td>8</td></tr>
+              <tr><td>&#129352; 2</td><td>@px_wizard</td><td>6,750</td><td>18 days</td><td>5</td></tr>
+              <tr><td>&#129353; 3</td><td>@kenzdev</td><td>4,820</td><td>12 days</td><td>4</td></tr>
+              <tr><td>4</td><td>@lira_codes</td><td>3,100</td><td>7 days</td><td>3</td></tr>
+              <tr><td>5</td><td>@bit_flip</td><td>2,900</td><td>5 days</td><td>2</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: MODERATION -->
+    <section class="section" id="section-moderation">
+      <div class="stat-grid">
+        <div class="stat-card accent-red"><div class="stat-label">Open Reports</div><div class="stat-value">17</div></div>
+        <div class="stat-card accent-yellow"><div class="stat-label">Flagged Posts</div><div class="stat-value">8</div></div>
+        <div class="stat-card accent-green"><div class="stat-label">Resolved Today</div><div class="stat-value">24</div></div>
+        <div class="stat-card accent-blue"><div class="stat-label">Banned Users</div><div class="stat-value">43</div></div>
+      </div>
+      <div class="card">
+        <div class="card-header">Pending Reports</div>
+        <table class="data-table full">
+          <thead><tr><th>Reporter</th><th>Against</th><th>Type</th><th>Reason</th><th>Date</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr><td>@lira_codes</td><td>@null_byte</td><td>Comment</td><td>Harassment</td><td>Today</td><td><div class="action-btns"><button class="act-btn">Review</button><button class="act-btn red">Ban User</button></div></td></tr>
+            <tr><td>@px_wizard</td><td>@ghost_coder</td><td>Post</td><td>Spam</td><td>Today</td><td><div class="action-btns"><button class="act-btn">Review</button><button class="act-btn red">Remove</button></div></td></tr>
+            <tr><td>@kenzdev</td><td>@hax0r</td><td>Code</td><td>Plagiarism</td><td>Yesterday</td><td><div class="action-btns"><button class="act-btn">Review</button><button class="act-btn red">Ban User</button></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION: FEEDBACK & SUPPORT -->
+    <section class="section" id="section-feedback">
+      <div class="section-toolbar">
+        <input type="text" class="toolbar-search" placeholder="Search tickets..."/>
+        <select class="toolbar-select">
+          <option>All</option>
+          <option>Open</option>
+          <option>In Progress</option>
+          <option>Resolved</option>
+        </select>
+      </div>
+      <div class="card">
+        <table class="data-table full">
+          <thead><tr><th>Ticket</th><th>User</th><th>Subject</th><th>Type</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr><td>#1041</td><td>@kenzdev</td><td>Quiz not saving progress</td><td>Bug</td><td>Today</td><td><span class="badge red">Open</span></td><td><div class="action-btns"><button class="act-btn">Respond</button></div></td></tr>
+            <tr><td>#1040</td><td>@bit_flip</td><td>Badge not awarded after streak</td><td>Bug</td><td>Today</td><td><span class="badge yellow">In Progress</span></td><td><div class="action-btns"><button class="act-btn">Respond</button></div></td></tr>
+            <tr><td>#1039</td><td>@lira_codes</td><td>Suggestion: Dark code editor theme</td><td>Feature</td><td>Yesterday</td><td><span class="badge green">Resolved</span></td><td><div class="action-btns"><button class="act-btn">View</button></div></td></tr>
+            <tr><td>#1038</td><td>@void_ptr</td><td>Can't access C++ module 4</td><td>Bug</td><td>2d ago</td><td><span class="badge green">Resolved</span></td><td><div class="action-btns"><button class="act-btn">View</button></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION: NOTIFICATIONS -->
+    <section class="section" id="section-notifications">
+      <div class="dashboard-grid">
+        <div class="card">
+          <div class="card-header">Send Announcement</div>
+          <div class="form-group"><label>Title</label><input type="text" class="form-input" placeholder="Announcement title"/></div>
+          <div class="form-group"><label>Message</label><textarea class="form-input" rows="4" placeholder="Write your message..."></textarea></div>
+          <div class="form-group"><label>Audience</label>
+            <select class="form-input">
+              <option>All Users</option>
+              <option>Active Users</option>
+              <option>Python Learners</option>
+              <option>JS Learners</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Channel</label>
+            <select class="form-input">
+              <option>In-App</option>
+              <option>Email</option>
+              <option>Both</option>
+            </select>
+          </div>
+          <button class="btn-primary" style="margin-top:8px">Send Announcement</button>
+        </div>
+        <div class="card">
+          <div class="card-header">Notification Templates</div>
+          <div class="template-list">
+            <div class="template-item"><span>&#9993;</span><div><strong>Welcome Email</strong><small>Sent on signup</small></div><button class="act-btn">Edit</button></div>
+            <div class="template-item"><span>&#128293;</span><div><strong>Streak Reminder</strong><small>Sent at 6PM daily</small></div><button class="act-btn">Edit</button></div>
+            <div class="template-item"><span>&#127942;</span><div><strong>Badge Earned</strong><small>Sent on badge unlock</small></div><button class="act-btn">Edit</button></div>
+            <div class="template-item"><span>&#128640;</span><div><strong>Course Complete</strong><small>Sent on completion</small></div><button class="act-btn">Edit</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: ROLES & PERMISSIONS -->
+    <section class="section" id="section-roles">
+      <div class="dashboard-grid">
+        <div class="card">
+          <div class="card-header">Roles</div>
+          <div class="role-list">
+            <div class="role-item active-role"><span class="role-dot green"></span><strong>Super Admin</strong><small>Full access</small></div>
+            <div class="role-item"><span class="role-dot blue"></span><strong>Admin</strong><small>Most features</small></div>
+            <div class="role-item"><span class="role-dot yellow"></span><strong>Moderator</strong><small>Moderation + content</small></div>
+            <div class="role-item"><span class="role-dot orange"></span><strong>Content Editor</strong><small>Content only</small></div>
+            <div class="role-item"><span class="role-dot gray"></span><strong>Support Agent</strong><small>Feedback & tickets</small></div>
+          </div>
+          <button class="btn-primary" style="margin-top:16px">+ New Role</button>
+        </div>
+        <div class="card wide">
+          <div class="card-header">Permission Matrix</div>
+          <table class="data-table">
+            <thead><tr><th>Permission</th><th>Super Admin</th><th>Admin</th><th>Moderator</th><th>Editor</th><th>Support</th></tr></thead>
+            <tbody>
+              <tr><td>Manage Users</td><td>&#10003;</td><td>&#10003;</td><td>&#9900;</td><td>&#10007;</td><td>&#10007;</td></tr>
+              <tr><td>Edit Content</td><td>&#10003;</td><td>&#10003;</td><td>&#10007;</td><td>&#10003;</td><td>&#10007;</td></tr>
+              <tr><td>View Analytics</td><td>&#10003;</td><td>&#10003;</td><td>&#10007;</td><td>&#10007;</td><td>&#10007;</td></tr>
+              <tr><td>Moderation</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10007;</td><td>&#10007;</td></tr>
+              <tr><td>Support Tickets</td><td>&#10003;</td><td>&#10003;</td><td>&#10007;</td><td>&#10007;</td><td>&#10003;</td></tr>
+              <tr><td>System Settings</td><td>&#10003;</td><td>&#10007;</td><td>&#10007;</td><td>&#10007;</td><td>&#10007;</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: AUDIT LOGS -->
+    <section class="section" id="section-audit">
+      <div class="section-toolbar">
+        <input type="text" class="toolbar-search" placeholder="Search logs..."/>
+        <select class="toolbar-select">
+          <option>All Actions</option>
+          <option>User Actions</option>
+          <option>Content Actions</option>
+          <option>System Actions</option>
+        </select>
+      </div>
+      <div class="card">
+        <table class="data-table full">
+          <thead><tr><th>Timestamp</th><th>Admin</th><th>Action</th><th>Target</th><th>IP</th></tr></thead>
+          <tbody>
+            <tr><td>2025-04-01 09:12</td><td>Super Admin</td><td><span class="badge red">Banned User</span></td><td>@null_byte</td><td>192.168.1.1</td></tr>
+            <tr><td>2025-04-01 08:55</td><td>Editor</td><td><span class="badge green">Published</span></td><td>Python Basics L4</td><td>192.168.1.4</td></tr>
+            <tr><td>2025-04-01 08:30</td><td>Moderator</td><td><span class="badge yellow">Removed Post</span></td><td>Forum #2294</td><td>192.168.1.7</td></tr>
+            <tr><td>2025-03-31 22:10</td><td>Super Admin</td><td><span class="badge blue">Updated XP</span></td><td>Gamification Config</td><td>192.168.1.1</td></tr>
+            <tr><td>2025-03-31 18:45</td><td>Support</td><td><span class="badge green">Resolved Ticket</span></td><td>#1039</td><td>192.168.1.9</td></tr>
+            <tr><td>2025-03-31 15:22</td><td>Admin</td><td><span class="badge red">Deleted Content</span></td><td>OOP Course</td><td>192.168.1.2</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION: SETTINGS -->
+    <section class="section" id="section-settings">
+      <div class="dashboard-grid">
+        <div class="card">
+          <div class="card-header">General Settings</div>
+          <div class="form-group"><label>Platform Name</label><input type="text" class="form-input" value="CodeNest"/></div>
+          <div class="form-group"><label>Platform URL</label><input type="text" class="form-input" value="https://codenest.io"/></div>
+          <div class="form-group"><label>Default Language</label>
+            <select class="form-input"><option>English</option><option>Filipino</option><option>Spanish</option></select>
+          </div>
+          <div class="form-group"><label>Timezone</label>
+            <select class="form-input"><option>Asia/Manila (PHT)</option><option>UTC</option><option>America/New_York</option></select>
+          </div>
+          <button class="btn-primary" style="margin-top:8px">Save Settings</button>
+        </div>
+        <div class="card">
+          <div class="card-header">Feature Toggles</div>
+          <div class="toggle-list">
+            <div class="toggle-item"><span>Leaderboards</span><label class="toggle"><input type="checkbox" checked/><span class="toggle-slider"></span></label></div>
+            <div class="toggle-item"><span>Forum / Community</span><label class="toggle"><input type="checkbox" checked/><span class="toggle-slider"></span></label></div>
+            <div class="toggle-item"><span>Daily Streaks</span><label class="toggle"><input type="checkbox" checked/><span class="toggle-slider"></span></label></div>
+            <div class="toggle-item"><span>Badge System</span><label class="toggle"><input type="checkbox" checked/><span class="toggle-slider"></span></label></div>
+            <div class="toggle-item"><span>Code Challenges</span><label class="toggle"><input type="checkbox"/><span class="toggle-slider"></span></label></div>
+            <div class="toggle-item"><span>Maintenance Mode</span><label class="toggle"><input type="checkbox"/><span class="toggle-slider"></span></label></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Danger Zone</div>
+          <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:16px">These actions are irreversible. Proceed with caution.</p>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <button class="btn-danger">Clear All Cache</button>
+            <button class="btn-danger">Reset Leaderboard</button>
+            <button class="btn-danger">Export All User Data</button>
+            <button class="btn-danger">Delete All Draft Content</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Navigation
+    const navItems = document.querySelectorAll('.nav-item');
+    const sections = document.querySelectorAll('.section');
+    const pageTitle = document.getElementById('page-title');
+    const titles = {
+      dashboard: 'Dashboard', analytics: 'Analytics & Reports',
+      users: 'User Management', content: 'Content Management',
+      gamification: 'Gamification', moderation: 'Moderation',
+      feedback: 'Feedback & Support', notifications: 'Notifications',
+      roles: 'Roles & Permissions', audit: 'Audit Logs', settings: 'Settings'
+    };
+
+    navItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const sec = item.dataset.section;
+        navItems.forEach(n => n.classList.remove('active'));
+        sections.forEach(s => s.classList.remove('active'));
+        item.classList.add('active');
+        document.getElementById('section-' + sec).classList.add('active');
+        pageTitle.textContent = titles[sec];
+      });
+    });
+
+    // Date
+    const d = new Date();
+    document.getElementById('page-date').textContent = d.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+  </script>
+</body>
+</html>
