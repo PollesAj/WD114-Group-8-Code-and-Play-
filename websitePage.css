@@ -1,7 +1,10 @@
 @import url("landingpagestyle2.css");
 
-.contents {
-    padding-top: 58px;
+.contents,
+.games-section,
+.features,
+.cta-section {
+    width: 100%;
 }
 
 .hero-layout {
