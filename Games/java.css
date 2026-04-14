@@ -234,3 +234,7 @@ body::before {
 .btn {
   animation: borderBreath 2.5s infinite;
 }
+
+a {
+  text-decoration: none;
+}
