@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dungeon C++ Quiz</title>
+<link rel="stylesheet" href="Styles/dref.css">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<video autoplay muted loop id="bg-video">
+  <source src="Video/castle.mp4" type="video/mp4">
+</video>
+
+<div id="home-screen" class="home-screen">
+  <h1>🦇 Welcome to C++ Castle 🦇</h1>
+  <p>Answer correctly to conquer all grueling 50 rooms and earn the key...</p>
+  <button class="btn" onclick="startGame()">Start Adventure</button>
+</div>
+
+<div id="game-screen" style="display:none;">
+  <div class="game-box">
+    <h2>Dungeon Quiz</h2>
+    <div class="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <div class="player-ui">
+      <div id="character">🧙</div>
+      <div id="reaction">Ready...</div>
+    </div>
+
+    <div class="question" id="question"></div>
+    <div id="options"></div>
+    <button class="next-btn" onclick="nextQuestion()">Next Room →</button>
+  </div>
+</div>
+
+
+<script>
+
+const quiz = [
+  // 1
+  {
+    q: "1. Which header file is required to use cout and cin?",
+    a: ["<stdio.h>","<iostream>","<conio.h>","<fstream>"],
+    correct: 1,
+    explanation: "<iostream> is required for input/output streams in C++."
+  },
+  // 2 input
+  {
+    q: "2. Write the statement to print 'Hello World' in C++:",
+    input: true,
+    correctInput: "cout<<\"Hello World\";",
+    explanation: "cout is used for output in C++."
+  },
+  // 3
+  {
+    q: "3. Which of these is the correct main function signature?",
+    a: ["int main()","void main()","main()","int start()"],
+    correct: 0,
+    explanation: "The standard entry point is int main()."
+  },
+  // 4 input
+  {
+    q: "4. Write the code to declare an integer pointer named ptr:",
+    input: true,
+    correctInput: "int* ptr",
+    explanation: "Use int* ptr; to declare a pointer to int."
+  },
+  // 5
+  {
+    q: "5. Which operator is used to access members of an object through a pointer?",
+    a: ["." , "->" , "&" , "*"],
+    correct: 1,
+    explanation: "The arrow operator -> accesses object members through a pointer."
+  },
+  // 6 input
+  {
+    q: "6. Write the keyword used to create a class in C++:",
+    input: true,
+    correctInput: "class",
+    explanation: "Use the 'class' keyword to define a class."
+  },
+  // 7
+  {
+    q: "7. Which STL container stores elements in a key-value pair?",
+    a: ["vector","map","list","set"],
+    correct: 1,
+    explanation: "map stores key-value pairs in C++ STL."
+  },
+  // 8
+  {
+    q: "8. What is the output of sizeof(int) on most 64-bit systems?",
+    a: ["2","4","8","Depends on compiler"],
+    correct: 1,
+    explanation: "On most 64-bit systems, int is 4 bytes."
+  },
+  // 9 input
+  {
+    q: "9. Write the syntax to include the vector header file:",
+    input: true,
+    correctInput: "#include <vector>",
+    explanation: "Use #include <vector> to include the vector library."
+  },
+  // 10
+  {
+    q: "10. Which type of inheritance is supported by C++?",
+    a: ["Single","Multiple","Multilevel","All of the above"],
+    correct: 3,
+    explanation: "C++ supports single, multiple, and multilevel inheritance."
+  },
+  // 11 input
+  {
+    q: "11. Write the keyword to handle exceptions in C++:",
+    input: true,
+    correctInput: "try",
+    explanation: "Use try { ... } to start an exception block."
+  },
+  // 12 input
+  {
+    q: "12. Write the keyword used to catch exceptions in C++:",
+    input: true,
+    correctInput: "catch",
+    explanation: "Use catch(...) { ... } to handle exceptions."
+  },
+  // 13
+  {
+    q: "13. Which of the following is used to allocate dynamic memory?",
+    a: ["malloc","new","alloc","create"],
+    correct: 1,
+    explanation: "'new' allocates memory dynamically in C++."
+  },
+  // 14 input
+  {
+    q: "14. Write the operator used to deallocate memory allocated with new:",
+    input: true,
+    correctInput: "delete",
+    explanation: "Use 'delete' to free dynamically allocated memory."
+  },
+  // 15
+  {
+    q: "15. Which of these is used for abstraction in C++?",
+    a: ["Function","Class","Interface","Both Class and Abstract Class"],
+    correct: 3,
+    explanation: "Abstraction is implemented using classes and abstract classes."
+  },
+  // 16
+  {
+    q: "16. Which access specifier makes class members accessible only within the class?",
+    a: ["private","public","protected","internal"],
+    correct: 0,
+    explanation: "private members are accessible only inside the class."
+  },
+  // 17 input
+  {
+    q: "17. Write the keyword to define a constant variable in C++:",
+    input: true,
+    correctInput: "const",
+    explanation: "Use 'const' to declare a constant."
+  },
+  // 18
+  {
+    q: "18. Which operator is used for modulo operation in C++?",
+    a: ["%","mod","/","//"],
+    correct: 0,
+    explanation: "The % operator returns the remainder of division."
+  },
+  // 19 input
+  {
+    q: "19. Write the C++ statement to declare an array of 5 integers named arr:",
+    input: true,
+    correctInput: "int arr[5];",
+    explanation: "int arr[5]; declares an integer array of size 5."
+  },
+  // 20
+  {
+    q: "20. Which loop guarantees execution at least once?",
+    a: ["for","while","do-while","foreach"],
+    correct: 2,
+    explanation: "do-while executes the block at least once."
+  },
+  // 21 input
+  {
+    q: "21. Write the C++ keyword for defining a destructor:",
+    input: true,
+    correctInput: "~",
+    explanation: "Destructors start with ~ followed by class name."
+  },
+  // 22 input
+  {
+    q: "22. Write the operator used to access elements of an array using pointer:",
+    input: true,
+    correctInput: "*",
+    explanation: "Use *ptr or ptr[i] to access array elements via pointers."
+  },
+  // 23
+  {
+    q: "23. Which of these correctly initializes a vector of integers?",
+    a: ["vector<int> v;","vector v<int>;","vector<int> v();","vector v();"],
+    correct: 0,
+    explanation: "vector<int> v; correctly initializes a vector of integers."
+  },
+  // 24
+  {
+    q: "24. Which of the following is NOT a C++ keyword?",
+    a: ["mutable","virtual","inline","foreach"],
+    correct: 3,
+    explanation: "'foreach' is not a C++ keyword."
+  },
+  // 25 input
+  {
+    q: "25. Write the keyword to define a virtual function in C++:",
+    input: true,
+    correctInput: "virtual",
+    explanation: "Use 'virtual' to define polymorphic behavior in a function."
+  },
+  // 26
+  {
+    q: "26. Which of these operators is used for scope resolution?",
+    a: ["::","->",".","%"],
+    correct: 0,
+    explanation: "'::' is the scope resolution operator."
+  },
+  // 27 input
+  {
+    q: "27. Write the C++ keyword used to inherit a class:",
+    input: true,
+    correctInput: "public",
+    explanation: "Use public (or protected/private) before base class to inherit."
+  },
+  // 28
+  {
+    q: "28. Which type of polymorphism is resolved at runtime?",
+    a: ["Compile-time","Runtime","Static","All of the above"],
+    correct: 1,
+    explanation: "Runtime polymorphism is achieved via virtual functions."
+  },
+  // 29 input
+  {
+    q: "29. Write the keyword used to define a template in C++:",
+    input: true,
+    correctInput: "template",
+    explanation: "Use 'template <typename T>' to define a generic function or class."
+  },
+  // 30
+  {
+    q: "30. Which operator is used for pointer arithmetic (increment address)?",
+    a: ["*","++","&","+="],
+    correct: 1,
+    explanation: "++ increases the pointer to point to the next memory element."
+  },
+  // 31 input
+  {
+    q: "31. Write the syntax to start a namespace named MySpace:",
+    input: true,
+    correctInput: "namespace MySpace {",
+    explanation: "Use 'namespace Name { ... }' to define a namespace."
+  },
+  // 32 input
+  {
+    q: "32. Write the C++ statement to open a file for reading using fstream:",
+    input: true,
+    correctInput: "ifstream file;",
+    explanation: "Use ifstream to read files in C++."
+  },
+  // 33
+  {
+    q: "33. Which of the following is used to stop a loop prematurely?",
+    a: ["break","continue","exit","stop"],
+    correct: 0,
+    explanation: "break exits the loop immediately."
+  },
+  // 34
+  {
+    q: "34. Which of these is NOT a type of cast in C++?",
+    a: ["static_cast","dynamic_cast","reinterpret_cast","convert_cast"],
+    correct: 3,
+    explanation: "convert_cast does not exist in C++."
+  },
+  // 35 input
+  {
+    q: "35. Write the C++ operator to access members of a class object:",
+    input: true,
+    correctInput: ".",
+    explanation: "Use dot operator '.' to access class members."
+  },
+  // 36 input
+  {
+    q: "36. Write the keyword used to declare a friend function:",
+    input: true,
+    correctInput: "friend",
+    explanation: "Use 'friend' to declare a function as friend of a class."
+  },
+  // 37
+  {
+    q: "37. Which of the following is used to define an abstract class?",
+    a: ["class with pure virtual function","class with private members","class with friend functions","None of the above"],
+    correct: 0,
+    explanation: "A class with at least one pure virtual function is abstract."
+  },
+  // 38 input
+  {
+    q: "38. Write the syntax to allocate an array dynamically of size 10 integers:",
+    input: true,
+    correctInput: "new int[10]",
+    explanation: "Use new int[10] to allocate dynamic array."
+  },
+  // 39 input
+  {
+    q: "39. Write the keyword to terminate the program immediately:",
+    input: true,
+    correctInput: "exit",
+    explanation: "Use exit(0) to terminate the program."
+  },
+  // 40
+  {
+    q: "40. Which STL container stores elements in a sorted unique order?",
+    a: ["vector","list","set","map"],
+    correct: 2,
+    explanation: "set stores unique sorted elements."
+  },
+  // 41 input
+  {
+    q: "41. Write the C++ statement to create a const reference to an int x:",
+    input: true,
+    correctInput: "const int& ref = x;",
+    explanation: "const int& ref = x; creates a const reference."
+  },
+  // 42
+  {
+    q: "42. Which operator is used for conditional evaluation (ternary)?",
+    a: ["? :", "?:", "if else", "??"],
+    correct: 1,
+    explanation: "?: is the ternary operator."
+  },
+  // 43 input
+  {
+    q: "43. Write the syntax to declare a two-dimensional array of integers 3x3:",
+    input: true,
+    correctInput: "int arr[3][3];",
+    explanation: "Use int arr[3][3]; to declare 2D array."
+  },
+  // 44 input
+  {
+    q: "44. Write the keyword to define a static member in class:",
+    input: true,
+    correctInput: "static",
+    explanation: "Use static keyword to define a member shared across objects."
+  },
+  // 45
+  {
+    q: "45. Which of these is the correct syntax for switch-case in C++?",
+    a: ["switch(x){case 1: break;}","switch x {case 1: break;}","switch(x) case 1: break;","switch(x): case 1; break;"],
+    correct: 0,
+    explanation: "switch(x){ case value: ... break; } is correct syntax."
+  },
+  // 46 input
+  {
+    q: "46. Write the C++ statement to read an integer from user input:",
+    input: true,
+    correctInput: "std::cin >> x;",
+    explanation: "Use std::cin >> variable; to read input."
+  },
+  // 47 input
+  {
+    q: "47. Write the C++ keyword to indicate a public inheritance:",
+    input: true,
+    correctInput: "public",
+    explanation: "Use public BaseClass to inherit publicly."
+  },
+  // 48
+  {
+    q: "48. Which operator is used to access the address of a variable?",
+    a: ["*","&","->","%"],
+    correct: 1,
+    explanation: "& returns the memory address of a variable."
+  },
+  // 49 input
+  {
+    q: "49. Write the C++ statement to push a value 10 into a vector v:",
+    input: true,
+    correctInput: "v.push_back(10);",
+    explanation: "Use push_back(value) to add element to vector."
+  },
+  // 50 input
+  {
+    q: "50. Write the keyword used to declare a namespace:",
+    input: true,
+    correctInput: "namespace",
+    explanation: "Use 'namespace Name { ... }' to define a namespace."
+  }
+];
+
+let current = 0;
+let selected = null;
+let score = 0;
+let wrong = 0;
+let answered = false;
+
+function loadQuestion(){
+  selected = null;
+  answered = false;
+
+  const q = quiz[current];
+  document.getElementById("question").innerText = q.q;
+
+  let optionsHTML = "";
+
+  // Multiple-choice options
+  if(q.a && q.a.length > 0){
+    q.a.forEach((opt,index)=>{
+      const escapedOpt = opt.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      optionsHTML += `<div class="option" onclick="selectOption(${index}, this)">${escapedOpt}</div>`;
+    });
+  }
+
+  // Input question
+  if(q.input){
+    optionsHTML += `
+      <input type="text" id="text-answer" placeholder="Type your answer here">
+      <button class="btn" onclick="submitInput()">Submit Answer</button>
+    `;
+  }
+
+  document.getElementById("options").innerHTML = optionsHTML;
+
+  // Progress bar
+  document.getElementById("progress").style.width = ((current)/quiz.length)*100 + "%";
+}
+
+function submitInput(){
+  if(answered) return; // prevent multiple submissions
+
+  const q = quiz[current];
+  const inputBox = document.getElementById("text-answer");
+
+  if(!inputBox) return; // safety check
+
+  const userAnswer = inputBox.value.trim().toLowerCase();
+  if(userAnswer === ""){
+    alert("Please enter your answer before submitting.");
+    return;
+  }
+
+  const correctAnswer = q.correctInput.toLowerCase();
+
+  const character = document.getElementById("character");
+  const reaction = document.getElementById("reaction");
+
+  answered = true;
+
+  if(userAnswer === correctAnswer){
+    score++;
+    character.textContent = "😄";
+    character.classList.add("correct-anim");
+    reaction.innerHTML = `Correct! You strike the enemy! ⚔️<br><small>${q.explanation}</small>`;
+  } else {
+    wrong++;
+    character.textContent = "😡";
+    character.classList.add("wrong-anim");
+    reaction.innerHTML = `Wrong! You took damage! 💀<br><small>Correct answer: ${q.correctInput}<br>${q.explanation}</small>`;
+  }
+
+  // Reset character after a short delay
+  setTimeout(()=>{
+    character.textContent = "🧙";
+    reaction.textContent = "Next move...";
+  }, 3000); // shorter delay so it’s playable
+}
+
+function startGame(){
+  document.getElementById("home-screen").style.display = "none";
+  document.getElementById("game-screen").style.display = "block";
+  loadQuestion();
+}
+
+function goHome(){
+  window.location.href = "landing.html";
+}
+
+function retryGame(){
+  current = 0;
+  score = 0;
+  wrong = 0;
+  selected = null;
+  answered = false;
+
+  document.querySelector(".game-box").innerHTML = `
+    <h2>Dungeon Quiz</h2>
+    <div class="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <div class="player-ui">
+      <div id="character">🧙</div>
+      <div id="reaction">Ready...</div>
+    </div>
+
+    <div class="question" id="question"></div>
+    <div id="options"></div>
+    <button class="next-btn" onclick="nextQuestion()">Next Room →</button>
+  `;
+
+  loadQuestion();
+}
+
+function selectOption(index, el){
+  if(answered) return;
+
+  selected = index;
+  answered = true;
+
+  let options = document.querySelectorAll(".option");
+  let character = document.getElementById("character");
+  let reaction = document.getElementById("reaction");
+
+  character.classList.remove("correct-anim","wrong-anim");
+
+  options.forEach((opt,i)=>{
+    opt.style.pointerEvents = "none";
+    if(i === quiz[current].correct){
+      opt.style.background = "#4CAF50";
+      opt.style.color = "#fff";
+    } else if(i === index){
+      opt.style.background = "#ff4d4d";
+      opt.style.color = "#fff";
+    }
+  });
+
+  if(index === quiz[current].correct){
+    score++;
+    character.textContent = "😄";
+    character.classList.add("correct-anim");
+    reaction.innerHTML = `Correct! You strike the enemy! ⚔️<br><small>${quiz[current].explanation}</small>`;
+  } else {
+    wrong++;
+    character.textContent = "😡";
+    character.classList.add("wrong-anim");
+    reaction.innerHTML = `Wrong! You took damage! 💀<br><small>${quiz[current].explanation}</small>`;
+  }
+
+  setTimeout(()=>{
+    character.textContent = "🧙";
+    reaction.textContent = "Next move...";
+  },300000); // Give time for explanation to read
+}
+
+function nextQuestion(){
+  if(!answered){
+    alert("Choose your answer first!");
+    return;
+  }
+
+  current++;
+
+  if(current >= quiz.length){
+    const pass = score >= 25;
+
+    let resultHTML = `
+      <h2>${pass ? "🗝️ Key Obtained! 🗝️" : "💀 Dungeon Failed 💀"}</h2>
+      <p>✅ Correct: ${score}</p>
+      <p>❌ Wrong: ${wrong}</p>
+      <p>${pass ? "You may enter the next dungeon..." : "Score at least 25 to earn the key."}</p>
+      <br>
+      <button class="btn" onclick="retryGame()">🔁 Try Again</button>
+      <a href="../landingpage2.html" class="btn">🏠 Home</a>
+    `;
+
+    document.querySelector(".game-box").innerHTML = resultHTML;
+    return;
+  }
+
+  loadQuestion();
+}
+
+loadQuestion();
+</script>
+
+
+</body>
+</html>
