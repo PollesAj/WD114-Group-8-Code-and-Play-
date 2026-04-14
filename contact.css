@@ -1,7 +1,7 @@
 @import url("landingpagestyle2.css");
 
-.contents {
-    padding-bottom: 40px;
+.contents{
+    width: 100%;
 }
 
 .contents h1 {
